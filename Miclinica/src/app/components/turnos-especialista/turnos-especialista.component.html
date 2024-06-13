@@ -1,0 +1,34 @@
+<div>
+  <h2>Mis Turnos como Especialista</h2>
+  <div>
+    <label>Especialidad:</label>
+    <input type="text" [(ngModel)]="filtroEspecialidad" />
+    <label>Nombre del paciente:</label>
+    <input type="text" [(ngModel)]="filtroPacienteNombre" />
+    <label>Apellido del paciente:</label>
+    <input type="text" [(ngModel)]="filtroPacienteApellido" />
+    <button (click)="buscarTurnos()">Buscar</button>
+  </div>
+  <div *ngFor="let turno of turnosFiltrados">
+    <p>Especialidad: {{ turno.especialidadId }}</p>
+    <p>Paciente ID: {{ turno.pacienteId }}</p>
+    <p>Fecha: {{ turno.fecha }}</p>
+    <p>Hora: {{ turno.hora }}</p>
+    <p>Estado: {{ turno.estado }}</p>
+    <div *ngIf="puedeCancelar(turno)">
+      <button (click)="cancelarTurno(turno.id)">Cancelar turno</button>
+    </div>
+    <div *ngIf="puedeRechazar(turno)">
+      <button (click)="rechazarTurno(turno.id)">Rechazar turno</button>
+    </div>
+    <div *ngIf="puedeAceptar(turno)">
+      <button (click)="aceptarTurno(turno.id)">Aceptar turno</button>
+    </div>
+    <div *ngIf="puedeFinalizar(turno)">
+      <button (click)="finalizarTurno(turno.id)">Finalizar turno</button>
+    </div>
+    <div *ngIf="tieneResena(turno)">
+      <button (click)="verResena(turno)">Ver Reseña</button>
+    </div>
+  </div>
+</div>

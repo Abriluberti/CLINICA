@@ -1,0 +1,158 @@
+/* styles.css */
+
+/* Estilos generales */
+html, body {
+  font-family: Arial, sans-serif;
+  background-color: #349cb6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-attachment: fixed;
+  overflow-y: hidden;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  /* Añade una animación de gradiente */
+  background-image: linear-gradient(45deg, #349cb6, #1a5575, #669bbc);
+  animation: gradientAnimation 10s infinite alternate;
+}
+
+/* Animación de gradiente */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Estilos del contenedor de inicio de sesión */
+.login-container {
+  background-color: #ede7e4;
+  padding: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto; /* Centra horizontalmente */
+}
+
+/* Estilos del título */
+h2 {
+  color: #333333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Estilos de las etiquetas */
+label {
+  color: #0a0a0a;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Estilos de los campos de entrada */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+/* Estilos del botón de inicio de sesión */
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #003d82;
+}
+
+/* Estilos del mensaje de error */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Estilos de la superposición de carga */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Estilos del spinner de carga */
+.spinner {
+  border: 16px solid #f3f3f3; /* Gris claro */
+  border-top: 16px solid #3498db; /* Azul */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite;
+}
+
+/* Estilos de los botones de acceso rápido */
+.quick-access-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.quick-access-buttons button {
+  padding: 10px;
+  background-color: #4CAF50; /* Verde */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.quick-access-buttons button:hover {
+  background-color: #45a049; /* Verde más oscuro */
+}
+
+/* Agrega burbujas flotantes */
+/* Agrega burbujas flotantes */
+.login-container::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: floatBubble 5s infinite alternate;
+
+  top: 20%;
+  left: 10%;
+}
+
+@keyframes floatBubble {
+  12% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+

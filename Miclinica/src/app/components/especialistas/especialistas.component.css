@@ -1,0 +1,33 @@
+/* Estilos de tabla */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    /* Agrega otros estilos según tus preferencias */
+  }
+  
+  /* Estilos de celda */
+  td, th {
+    padding: 5px;
+    border: 1px solid #ddd;
+    /* Personaliza los colores y otros estilos */
+  }
+  
+  /* Fuentes y tamaños de texto */
+  table {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  
+  /* Espaciado y alineación */
+  td, th {
+    text-align: left;
+  }
+  
+  /* Colores y temas */
+  /* Define tus colores personalizados aquí */
+  
+  /* Ejemplo de color de fondo alternado para filas */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  

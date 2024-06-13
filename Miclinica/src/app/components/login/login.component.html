@@ -1,0 +1,28 @@
+<!-- login.component.html -->
+<body>
+    <div class="login-container">
+      <h2>Inicio de Sesión</h2>
+      <form (ngSubmit)="login()">
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" [(ngModel)]="email" name="email" required>
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" [(ngModel)]="password" name="password" required>
+        </div>
+        <button type="submit">Iniciar Sesión</button>
+      </form>
+      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+      <div *ngIf="loading$ | async" class="loading-overlay">
+        <div class="spinner"></div>
+      </div>
+      <div class="quick-access-buttons">
+    
+        <button (click)="setQuickAccess('admin')">Admin</button>
+        <button (click)="setQuickAccess('especialista')">Especialista</button>
+        <button (click)="setQuickAccess('paciente')">Paciente</button>
+      </div>
+    </div>
+  </body>
+  

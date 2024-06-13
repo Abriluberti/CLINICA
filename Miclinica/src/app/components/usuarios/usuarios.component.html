@@ -1,0 +1,14 @@
+<div >
+   
+    <h2>Registrar Administrador</h2>
+    <form (submit)="registrarAdmin()">
+      <input type="text" [(ngModel)]="admin.nombre" name="nombre" placeholder="Nombre" required>
+      <input type="text" [(ngModel)]="admin.apellido" name="apellido" placeholder="Apellido" required>
+      <input type="number" [(ngModel)]="admin.edad" name="edad" placeholder="Edad" required min="0">
+      <input type="number" [(ngModel)]="admin.dni" name="dni" placeholder="DNI" required>
+      <input type="email" [(ngModel)]="admin.email" name="email" placeholder="Email" required>
+      <input type="password" [(ngModel)]="admin.password" name="password" placeholder="Password" required>
+      <input type="file" (change)="onFileSelected($event)" required>
+      <button type="submit">Registrar</button>
+    </form>
+</div>

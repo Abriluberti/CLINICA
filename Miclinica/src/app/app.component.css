@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ede7e4;
+    overflow: hidden;
+    border: none; /* Esto eliminará cualquier borde del cuerpo */
+  }
+  
+  .container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+
+
+/* Estilos para la barra de navegación */
+.navbar {
+  background-color: #343a40; /* Color de fondo */
+}
+
+.navbar-brand {
+  color: #ffffff; /* Color del texto */
+}
+
+.navbar-brand:hover {
+  color: #ffffff; /* Cambio de color al pasar el ratón */
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: #ffffff; /* Color del texto */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: #ffffff; /* Cambio de color al pasar el ratón */
+}
+
+/* Estilos para el botón de menú desplegable */
+.navbar-toggler {
+  border-color: transparent; /* Color del borde */
+}
+
+.navbar-toggler-icon {
+  background-color: #ffffff; /* Color del icono */
+}
+
+/* Estilos para el menú desplegable */
+.dropdown-menu {
+  background-color: #343a40; /* Color de fondo */
+}
+
+.dropdown-item {
+  color: #ffffff; /* Color del texto */
+}
+
+.dropdown-item:hover {
+  background-color: #495057; /* Cambio de color de fondo al pasar el ratón */
+  color: #ffffff; /* Cambio de color del texto al pasar el ratón */
+}

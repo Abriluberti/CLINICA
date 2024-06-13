@@ -1,0 +1,41 @@
+<h2>Gestión de Usuarios</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Perfil</th>
+ 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let paciente of pacientes">
+      <td>{{ paciente.nombre }}</td>
+      <td>{{ paciente.apellido }}</td>
+      <td>{{ paciente.email }}</td>
+      <td>{{ paciente.perfil }}</td>
+      <td>
+      
+      </td>
+    </tr>
+    <tr *ngFor="let especialista of especialistas">
+      <td>{{ especialista.nombre }}</td>
+      <td>{{ especialista.apellido }}</td>
+      <td>{{ especialista.email }}</td>
+      <td>{{ especialista.perfil }}</td>
+      <td>
+        
+      </td>
+    </tr>
+    <tr *ngFor="let administrador of administradores">
+      <td>{{ administrador.nombre }}</td>
+      <td>{{ administrador.apellido }}</td>
+      <td>{{ administrador.email }}</td>
+      <td>{{ administrador.perfil }}</td>
+      <td>
+    
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,37 @@
+<div class="solicitud-turno-container">
+  <h2>Solicitar Turno</h2>
+  <form (ngSubmit)="solicitarTurno()" #solicitudForm="ngForm">
+ <div class="form-group" *ngIf="!isAdmin">
+      <label for="paciente">Paciente</label>
+      <input type="text" id="paciente" name="paciente" [(ngModel)]="pacienteNombre" disabled>
+    </div>
+    <!-- Campo "Paciente" visible solo para administradores -->
+    <div class="form-group" *ngIf="isAdmin">
+      <label for="paciente">Paciente</label>
+      <select id="paciente" name="paciente" [(ngModel)]="pacienteSeleccionado" required>
+        <option *ngFor="let paciente of pacientes$ | async" [value]="paciente.id">{{ paciente.nombre }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="especialidad">Especialidad</label>
+      <select id="especialidad" name="especialidad" [(ngModel)]="especialidadSeleccionada" required>
+        <option *ngFor="let especialista of especialistas$ | async" [value]="especialista.especialidad">{{ especialista.especialidad }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="especialista">Especialista</label>
+      <select id="especialista" name="especialista" [(ngModel)]="especialistaSeleccionado" required>
+        <option *ngFor="let especialista of especialistas$ | async" [value]="especialista.nombre">{{ especialista.nombre }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="fecha">Fecha del turno</label>
+      <input type="date" id="fecha" name="fecha" [(ngModel)]="fechaSeleccionada" required>
+    </div>
+    <div class="form-group">
+      <label for="hora">Hora del turno</label>
+      <input type="time" id="hora" name="hora" [(ngModel)]="horaSeleccionada" required>
+    </div>
+    <button type="submit" [disabled]="!solicitudForm.form.valid">Solicitar Turno</button>
+  </form>
+</div>

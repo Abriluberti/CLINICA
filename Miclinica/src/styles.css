@@ -1,0 +1,18 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ecdcd4;
+  overflow: hidden;
+  border: none; /* Esto eliminará cualquier borde del cuerpo */
+  margin: 0; /* Asegúrate de que no haya margen en el cuerpo */
+  padding: 0; /* Asegúrate de que no haya relleno en el cuerpo */
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  border: none; /* Esto eliminará cualquier borde del contenedor */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,25 @@
+<h2>Gestión de Especialistas</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let especialista of especialistas">
+      <td>{{ especialista.nombre }}</td>
+      <td>{{ especialista.apellido }}</td>
+      <td>{{ especialista.email }}</td>
+      <td>{{ especialista.perfil }}</td>
+      <td>
+        <button (click)="habilitarUsuario(especialista.id, !especialista.habilitado)">
+          {{ especialista.habilitado ? 'Deshabilitar' : 'Habilitar' }}
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,114 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #ede7e4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1600px;
+    padding: 60px;
+    background-color: #349cb6;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    margin: 80px;
+}
+
+
+
+.img-paciente {
+    float: left; /* O right si prefieres que estén a la derecha */
+    margin-right: 50px; /* Espacio entre la imagen y el formulario */
+    max-width: 15%;
+    
+}
+.img-especialista {
+    float: right; /* O right si prefieres que estén a la derecha */
+    margin-right: 50px; /* Espacio entre la imagen y el formulario */
+    max-width: 15%;
+    
+}
+.container form {
+    margin-bottom: 20px;
+  }
+  
+
+.registro-paciente img,
+.registro-especialista img {
+    max-width: 40%;
+}
+
+.registro-especialista form {
+    flex: 1;
+    margin-right: 180px; /* Cambiamos a margen izquierdo */
+}
+
+h2 {
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=password],
+input[type=file] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+input[type=submit] {
+    background-color: #56ab2f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type=submit]:hover {
+    background-color: #449c24;
+}
+
+/* Estilos de la superposición de carga */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Estilos del spinner de carga */
+.spinner {
+    border: 16px solid #f3f3f3; /* Gris claro */
+    border-top: 16px solid #3498db; /* Azul */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 1s linear infinite;
+}
