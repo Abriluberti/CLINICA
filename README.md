@@ -70,7 +70,8 @@ Esta pantalla es exclusiva para el administrador y le va a permitir visualizar d
 
 Pacientes:
 Esta sesion es para los Especialistas y muestra a los pacientes atendidos al menos una vez
-![imagen](https://github.com/Abriluberti/CLINICA/assets/98592504/60af5f3e-c9e1-4cb8-a40b-b303d51a1199)
+![Sin título](https://github.com/Abriluberti/CLINICA/assets/98592504/f1a2992e-a405-4afb-b0cc-4f875aadb2cb)
+
 
 LOGO:
 ![imagen](https://github.com/Abriluberti/CLINICA/assets/98592504/2950d599-4aae-4436-99b2-cf17addc7af1)
