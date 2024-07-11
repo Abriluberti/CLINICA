@@ -61,8 +61,7 @@ Cuenta con los datos del usuario, Nombre,Apellido,Imagenes y si sos paciente per
 
 Usuarios: 
 Esta sesion es solo para los admins, donde podra descargar la historia clinica de los pacientes, registrar a otros admins y habilitar/deshabilitar especialistas
-![Sin título](https://github.com/Abriluberti/CLINICA/assets/98592504/1ed16d7b-ae11-4cb7-afb3-933da3b8ffad)
-
+![Sin título](https://github.com/Abriluberti/CLINICA/assets/98592504/22b591c1-e226-4a69-9027-6f249d969ab6)
 
 
 Graficos:
