@@ -37,7 +37,7 @@ Registro Especialista:
 ![Sin título](https://github.com/Abriluberti/CLINICA/assets/98592504/89c5c2c2-de17-4fcc-a85b-076e427a507c)
 
 Registro Paciente:
-![imagen](https://github.com/Abriluberti/CLINICA/assets/98592504/379a0811-5453-46d1-803f-8394ba689aa9)
+![Sin título](https://github.com/Abriluberti/CLINICA/assets/98592504/bd68483e-cd56-4bea-8ff6-0521dd67667f)
 
 Solicitar turno:
 Tanto el administrador como el usuario tendrán la opción de reservar un turno en cualquier especialidad con cualquier especialista.
@@ -61,7 +61,8 @@ Cuenta con los datos del usuario, Nombre,Apellido,Imagenes y si sos paciente per
 
 Usuarios: 
 Esta sesion es solo para los admins, donde podra descargar la historia clinica de los pacientes, registrar a otros admins y habilitar/deshabilitar especialistas
-![imagen](https://github.com/Abriluberti/CLINICA/assets/98592504/60c663bc-6ab4-4e1f-9afd-ed5727da3690)
+![Sin título](https://github.com/Abriluberti/CLINICA/assets/98592504/1ed16d7b-ae11-4cb7-afb3-933da3b8ffad)
+
 
 
 Graficos:
