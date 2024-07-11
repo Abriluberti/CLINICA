@@ -92,7 +92,8 @@ Capitalize: Tranforma la primer letra en mayuscula
 DIRECTIVAS:
 RandomBackground:Crea un fondo de color random cada vez que se entra al componente
 ![Sin título](https://github.com/Abriluberti/CLINICA/assets/98592504/5c223533-fbf3-4bef-b075-eaa02d011428)
-![Sin título](https://github.com/Abriluberti/CLINICA/assets/98592504/b6fea5ea-fc55-44d9-ab06-8666f0dad1c7)
+![Sin título](https://github.com/Abriluberti/CLINICA/assets/98592504/15414f6a-cec5-4519-be44-b0e1b9c02d73)
+
 
 ChangeBackgroundHover: Cambia el color del boton al pasar el mouse
 ![Sin título](https://github.com/Abriluberti/CLINICA/assets/98592504/0c247786-51df-4ef6-9e54-d00210ed1440)
