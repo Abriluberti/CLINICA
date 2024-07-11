@@ -1,7 +1,19 @@
 <div class="container" style="background-image: url('assets/onli.jpeg'); background-size: cover; background-position: center; height: 100vh; margin: 0; padding: 0;">
-  <h1 class="title animated-title">¡Bienvenido a nuestra clínica online Clinitech!</h1>
+  <h1 class="title animated-title">{{ '¡Bienvenido a nuestra clínica online Clinitech!' | uppercase }}</h1>
   <div class="buttons">
-      <button (click)="navigateToLogin()" class="login-btn button"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</button>
-      <button routerLink="/register" class="register-btn button"><i class="fas fa-user-plus"></i> Registrarse</button>
+    <button (click)="navigateToLogin()" class="login-btn button" appHoverBackground>
+      <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+    </button>
+    <button (click)="navigateToRegistro()" class="register-btn button" style="cursor: pointer;" appHoverBackground>
+      <i class="fas fa-user-plus"></i> Registrarse
+    </button>
+    
   </div>
 </div>
+
+<!-- Mostrar el componente FondoRegistroComponent encima del contenido principal -->
+<div *ngIf="showFondoRegistro" class="overlay">
+  <app-fondo-registro (especialista)="handleEspecialista()" (paciente)="handlePaciente()" (close)="closeFondoRegistro()"></app-fondo-registro>
+</div>
+
+

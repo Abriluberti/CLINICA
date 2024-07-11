@@ -1,37 +1,53 @@
 <div class="solicitud-turno-container">
   <h2>Solicitar Turno</h2>
   <form (ngSubmit)="solicitarTurno()" #solicitudForm="ngForm">
- <div class="form-group" *ngIf="!isAdmin">
-      <label for="paciente">Paciente</label>
-      <input type="text" id="paciente" name="paciente" [(ngModel)]="pacienteNombre" disabled>
-    </div>
-    <!-- Campo "Paciente" visible solo para administradores -->
     <div class="form-group" *ngIf="isAdmin">
+      <label for="paciente">Seleccionar Paciente</label>
+      <select id="paciente" name="paciente" [(ngModel)]="pacienteSeleccionado" class="form-control" required>
+        <option value="" disabled selected>Selecciona un paciente</option>
+        <option *ngFor="let paciente of (pacientes$ | async) || []" [ngValue]="paciente">{{ paciente.nombre }}</option>
+      </select>
+    </div>
+    <div class="form-group" *ngIf="!isAdmin">
       <label for="paciente">Paciente</label>
-      <select id="paciente" name="paciente" [(ngModel)]="pacienteSeleccionado" required>
-        <option *ngFor="let paciente of pacientes$ | async" [value]="paciente.id">{{ paciente.nombre }}</option>
-      </select>
+      <input type="text" id="paciente" name="paciente" [(ngModel)]="pacienteNombre" class="form-control" disabled>
     </div>
     <div class="form-group">
-      <label for="especialidad">Especialidad</label>
-      <select id="especialidad" name="especialidad" [(ngModel)]="especialidadSeleccionada" required>
-        <option *ngFor="let especialista of especialistas$ | async" [value]="especialista.especialidad">{{ especialista.especialidad }}</option>
-      </select>
+      <label for="especialista">Profesionales</label>
+      <div class="profesionales-container">
+        <button *ngFor="let especialista of (especialistas$ | async) || []" type="button" class="btn btn-profesional" (click)="seleccionarEspecialista(especialista)">
+          <img [src]="especialista.imageUrl1" alt="{{ especialista.nombre }}">
+          <span>{{ especialista.nombre }}</span>
+        </button>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="especialista">Especialista</label>
-      <select id="especialista" name="especialista" [(ngModel)]="especialistaSeleccionado" required>
-        <option *ngFor="let especialista of especialistas$ | async" [value]="especialista.nombre">{{ especialista.nombre }}</option>
-      </select>
+    <div class="form-group" *ngIf="especialidadesEspecialista.length > 0">
+      <label for="especialidadesEspecialista">Especialidades del Especialista</label>
+      <div class="especialidades-container">
+        <button *ngFor="let especialidad of especialidadesEspecialista" type="button" class="btn btn-especialidad" (click)="seleccionarEspecialidad(especialidad)">
+          <span>{{ especialidad }}</span>
+          <img [src]="getEspecialidadImage(especialidad)" alt="{{ especialidad }}">
+        </button>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="fecha">Fecha del turno</label>
-      <input type="date" id="fecha" name="fecha" [(ngModel)]="fechaSeleccionada" required>
+    <div class="form-group" *ngIf="especialidadSeleccionada">
+      <label for="fecha">Días disponibles para {{ especialistaSeleccionado?.nombre }}</label>
+      <div class="fechas-container">
+        <button *ngFor="let fecha of fechasDisponibles" type="button" class="btn-fecha" (click)="seleccionarFecha(fecha)" [class.seleccionado]="esFechaSeleccionada(fecha)">
+          {{ fecha }}
+        </button>
+      </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" *ngIf="fechaSeleccionada">
       <label for="hora">Hora del turno</label>
-      <input type="time" id="hora" name="hora" [(ngModel)]="horaSeleccionada" required>
+      <div class="horas-container">
+        <button *ngFor="let hora of horariosDisponibles" type="button" class="btn-hora" (click)="seleccionarHora(hora)" [class.seleccionado]="esHoraSeleccionada(hora)">
+          {{ hora }}
+        </button>
+      </div>
     </div>
-    <button type="submit" [disabled]="!solicitudForm.form.valid">Solicitar Turno</button>
+    
+    <button (click)="solicitarTurno()">Solicitar Turno</button>
+
   </form>
 </div>

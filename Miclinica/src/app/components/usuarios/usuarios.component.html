@@ -9,6 +9,14 @@
       <input type="email" [(ngModel)]="admin.email" name="email" placeholder="Email" required>
       <input type="password" [(ngModel)]="admin.password" name="password" placeholder="Password" required>
       <input type="file" (change)="onFileSelected($event)" required>
+      <re-captcha 
+      (resolved)="onCaptchaResolved($any($event))" 
+      siteKey="6Le4NAwqAAAAAIKdO4bvbwqBRzDmd6ksbKZhNFIX"
+      required>
+    </re-captcha>
+    
+    <div *ngIf="captchaError" class="error-message">Debe completar el Captcha correctamente.</div>
+
       <button type="submit">Registrar</button>
     </form>
 </div>

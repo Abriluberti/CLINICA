@@ -1,0 +1,112 @@
+/* Estilos generales para el contenedor principal */
+:host {
+  display: block;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #3498db;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Divide el contenedor en dos columnas */
+  gap: 20px; /* Espacio entre los elementos dentro del contenedor */
+}
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el formulario de filtrado */
+.form-filtro {
+  margin-bottom: 20px;
+}
+
+.form-filtro label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.form-filtro input[type="text"] {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-filtro button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-filtro button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para la lista de turnos */
+.lista-turnos {
+  margin-top: 20px;
+  max-height: 400px; /* Altura máxima de la lista de turnos */
+  overflow-y: auto; /* Agregar scroll vertical */
+}
+.left-panel {
+  grid-column: 1; /* Panel izquierdo ocupa la primera columna */
+}
+
+
+.turno {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.turno p {
+  margin: 5px 0;
+}
+
+.estado-turno {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Estilos para los botones de acciones */
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.acciones > div {
+  margin-left: 10px;
+}
+
+.acciones button {
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.acciones button:hover {
+  background-color: #28a745;
+}
+
+.acciones button.cancelar:hover,
+.acciones button.rechazar:hover {
+  background-color: #dc3545;
+}
+
+.acciones button.finalizar:hover {
+  background-color: #007bff;
+}
+
+.acciones button.ver:hover {
+  background-color: #17a2b8;
+}

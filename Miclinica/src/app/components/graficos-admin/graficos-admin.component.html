@@ -1,0 +1,20 @@
+<div [@slideInOut] class="dashboard" appRandomBackground >
+  <div class="buttons-container" >
+    <p>{{ 'INGRESE A LOS GRAFICOS:' | lowerCase }}</p>
+    <button (click)="navigateTo('log-ingresos')" class="slide-in" appChangeBackgroundHover>
+      <i class="fas fa-file-alt"></i> Log de ingresos al sistema
+    </button>
+    <button (click)="navigateTo('turnos-especialidad')" class="slide-in" appChangeBackgroundHover>
+      <i class="fas fa-calendar"></i> Cantidad de turnos por especialidad
+    </button>
+    <button (click)="navigateTo('turnos-dia')" class="slide-in" appChangeBackgroundHover>
+      <i class="fas fa-calendar-day"></i> Cantidad de turnos por día
+    </button>
+    <button (click)="navigateTo('turnos-medico')" class="slide-in" appChangeBackgroundHover>
+      <i class="fas fa-user-md"></i> Cantidad de turnos por médico en un lapso de tiempo
+    </button>
+    <button (click)="navigateTo('turnos-finalizados')" class="slide-in" appChangeBackgroundHover>
+      <i class="fas fa-check-circle"></i> Cantidad de turnos finalizados por médico en un lapso de tiempo
+    </button>
+  </div>
+</div>

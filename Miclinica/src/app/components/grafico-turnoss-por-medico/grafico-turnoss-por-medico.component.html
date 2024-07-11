@@ -1,0 +1,10 @@
+<div class="container">
+  
+      <h1>Cantidad de turnos solicitados por médico</h1>
+      <input type="date" [(ngModel)]="fechasSeleccionadas.inicio" (change)="onFechasSeleccionadasChange()">
+      <input type="date" [(ngModel)]="fechasSeleccionadas.fin" (change)="onFechasSeleccionadasChange()">
+   
+      <button class="btn" (click)="downloadPDF()"><span>Descargar</span> <i class="bi bi-download"></i></button>
+      <canvas #chart></canvas>
+    </div>
+

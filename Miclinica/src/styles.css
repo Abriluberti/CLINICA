@@ -16,3 +16,50 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+/* Animaciones de transición para los componentes */
+.router-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.router-container > * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+}
+
+.router-container > .ng-enter,
+.router-container > .ng-leave {
+  animation-fill-mode: both;
+}
+
+.ng-enter {
+  animation-name: fadeIn;
+}
+
+.ng-leave {
+  animation-name: fadeOut;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

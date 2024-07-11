@@ -1,0 +1,11 @@
+<div class="container"  [@fadeInOut]>
+    <div class="row">
+      <div class="column">
+        <app-pacientes (seleccionarPaciente)="abrirDetallePaciente($event)"></app-pacientes>
+      </div>
+      <div class="column">
+        <app-paciente-detalle-dialog [pacienteSeleccionado]="pacienteSeleccionado"></app-paciente-detalle-dialog>
+    </div>
+    </div>
+  </div>
+  

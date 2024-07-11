@@ -1,0 +1,17 @@
+<div class="button-container">
+    <div class="col">
+      <button mat-raised-button color="primary" class="boton profile-button m-3"
+              (mouseover)="showTooltip('Especialista')" (mouseout)="hideTooltip()" (click)="handleEspecialista()">
+        <img src="assets/especialista.gif" alt="Especialista">
+        <div class="tooltip-label" *ngIf="showTooltipText === 'Especialista'">Presionar para Especialista</div>
+      </button>
+    </div>
+    <div class="col">
+      <button mat-raised-button color="primary" class="boton profile-button m-3"
+              (mouseover)="showTooltip('Paciente')" (mouseout)="hideTooltip()" (click)="handlePaciente()">
+        <img src="assets/paciente.gif" alt="Paciente">
+        <div class="tooltip-label" *ngIf="showTooltipText === 'Paciente'">Presionar para Paciente</div>
+      </button>
+    </div>
+  </div>
+  

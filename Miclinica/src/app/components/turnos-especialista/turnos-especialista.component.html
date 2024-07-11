@@ -1,34 +1,70 @@
 <div>
   <h2>Mis Turnos como Especialista</h2>
-  <div>
-    <label>Especialidad:</label>
-    <input type="text" [(ngModel)]="filtroEspecialidad" />
-    <label>Nombre del paciente:</label>
-    <input type="text" [(ngModel)]="filtroPacienteNombre" />
-    <label>Apellido del paciente:</label>
-    <input type="text" [(ngModel)]="filtroPacienteApellido" />
-    <button (click)="buscarTurnos()">Buscar</button>
-  </div>
-  <div *ngFor="let turno of turnosFiltrados">
-    <p>Especialidad: {{ turno.especialidadId }}</p>
-    <p>Paciente ID: {{ turno.pacienteId }}</p>
-    <p>Fecha: {{ turno.fecha }}</p>
-    <p>Hora: {{ turno.hora }}</p>
-    <p>Estado: {{ turno.estado }}</p>
-    <div *ngIf="puedeCancelar(turno)">
-      <button (click)="cancelarTurno(turno.id)">Cancelar turno</button>
+
+  <!-- Contenedor principal usando CSS Grid -->
+  <div class="container">
+    <!-- Panel izquierdo con el contenido principal -->
+    <div class="left-panel">
+      <!-- Formulario de filtrado -->
+      <div class="form-filtro">
+        <label>Filtrar por cualquier campo:</label>
+        <input type="text" [(ngModel)]="filtro" (input)="filtrarTurnos()" />
+        <button (click)="limpiarFiltro()">Limpiar</button>
+      </div>
+
+      <!-- Lista de turnos -->
+      <div class="lista-turnos" *ngIf="turnosFiltrados && turnosFiltrados.length > 0; else noTurnos">
+        <div class="turno" *ngFor="let turno of turnosFiltrados">
+          <p>Especialidad: {{ obtenerEspecialidad(turno) }}</p>
+          <p>Paciente Nombre: {{ turno.pacienteNombre }}</p>
+          <p>Fecha: {{ turno.fecha }}</p>
+          <p>Hora: {{ turno.hora }}</p>
+          <p class="estado-turno">Estado: {{ turno.estado }}</p>
+
+          <!-- Acciones según el estado del turno -->
+          <div class="acciones">
+            <div *ngIf="puedeCancelar(turno) && !['Realizado', 'Rechazado', 'Cancelado', 'Finalizado'].includes(turno.estado)">
+              <button (click)="cancelarTurno(turno.turnoId)">Cancelar turno</button>
+            </div>
+            <div *ngIf="puedeRechazar(turno) && !['Realizado', 'Rechazado', 'Cancelado', 'Finalizado', 'Aceptado'].includes(turno.estado)">
+              <button (click)="rechazarTurno(turno.turnoId)">Rechazar turno</button>
+            </div>
+            <div *ngIf="puedeAceptar(turno) && !['Realizado', 'Rechazado', 'Cancelado', 'Finalizado', 'Aceptado'].includes(turno.estado)">
+              <button (click)="aceptarTurno(turno.turnoId)">Aceptar turno</button>
+            </div>
+            <div *ngIf="puedeFinalizar(turno)">
+              <button (click)="finalizarTurno(turno.turnoId)">Finalizar turno</button>
+            </div>
+            <div *ngIf="tieneResena(turno)">
+              <button (click)="verResena(turno)">Ver Reseña</button>
+            </div>
+            <div *ngIf="puedeCrearHistoriaClinica(turno)">
+              <button (click)="seleccionarTurno(turno)">Crear Historia Clínica</button>
+            </div>
+          </div>
+
+          <!-- Mostrar motivo cuando se rechaza o cancela el turno -->
+          <div *ngIf="['Rechazado', 'Cancelado'].includes(turno.estado)">
+            <app-motivo-turno [turno]="turno"></app-motivo-turno>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mensaje si no hay turnos -->
+      <ng-template #noTurnos>
+        <p>No se encontraron turnos.</p>
+      </ng-template>
     </div>
-    <div *ngIf="puedeRechazar(turno)">
-      <button (click)="rechazarTurno(turno.id)">Rechazar turno</button>
-    </div>
-    <div *ngIf="puedeAceptar(turno)">
-      <button (click)="aceptarTurno(turno.id)">Aceptar turno</button>
-    </div>
-    <div *ngIf="puedeFinalizar(turno)">
-      <button (click)="finalizarTurno(turno.id)">Finalizar turno</button>
-    </div>
-    <div *ngIf="tieneResena(turno)">
-      <button (click)="verResena(turno)">Ver Reseña</button>
-    </div>
+
+    <!-- Panel derecho con el componente de historia clínica -->
+      <!-- Panel derecho con el componente de historia clínica -->
+      <div class="right-panel">
+        <app-historia-clinica 
+          *ngIf="turnoSeleccionado"
+          [turno]="turnoSeleccionado"
+          (historiaClinicaCreada)="onHistoriaClinicaCreada()">
+        </app-historia-clinica>
+      </div>
+      
   </div>
 </div>

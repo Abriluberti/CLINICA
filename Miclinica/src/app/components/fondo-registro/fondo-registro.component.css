@@ -1,0 +1,44 @@
+/* Estilo de los botones */
+.profile-button {
+    width: 200px; /* Ancho del botón */
+    height: 100px; /* Alto del botón */
+    margin: 10px;
+    position: relative;
+  }
+  
+.profile-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Cambio de tamaño al pasar el cursor */
+.boton:hover {
+    width: 26vw;
+    height: 26vw;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espacio entre los botones */
+  }
+  
+  
+  .mat-raised-button {
+    margin: 0 10px; /* Margen entre los botones */
+  }
+  
+  .tooltip-label {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #349cb6;
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+  }

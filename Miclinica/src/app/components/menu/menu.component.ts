@@ -4,41 +4,50 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { map } from 'rxjs';
+import { HoverTraceDirective } from '../../directives/hover-trace.directive';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, NgIf],
+  imports: [RouterOutlet, RouterLink, NgIf, ],
   templateUrl: './menu.component.html',
-  styleUrl: './menu.component.css'
+  styleUrls: ['./menu.component.css'] // Fixed typo here
 })
 export class MenuComponent implements OnInit {
   isPaciente: boolean = false;
   isAdministrador: boolean = false;
+  isEspecialista: boolean = false; // Fixed naming consistency
 
   constructor(private afAuth: AngularFireAuth, private firestore: AngularFirestore) {}
 
   ngOnInit(): void {
-    // Inicializar isPaciente e isAdministrador en false al cargar el componente
+    // Initialize isPaciente, isAdministrador, and isEspecialista to false on component load
     this.isPaciente = false;
     this.isAdministrador = false;
+    this.isEspecialista = false; // Ensure consistency
 
-    // Suscribirse al cambio de estado de autenticación
+    // Subscribe to authentication state changes
     this.afAuth.authState.subscribe(user => {
       if (user) {
-        // Verificar si el usuario es un paciente
+        // Check if the user is a patient
         this.firestore.collection('pacientes').doc(user.uid).get().subscribe(pacienteDoc => {
           this.isPaciente = pacienteDoc.exists;
         });
 
-        // Verificar si el usuario es un administrador
+        // Check if the user is an administrator
         this.firestore.collection('administradores').doc(user.uid).get().subscribe(adminDoc => {
           this.isAdministrador = adminDoc.exists;
         });
+
+        // Check if the user is an specialist
+        this.firestore.collection('especialistas').doc(user.uid).get().subscribe(especialistaDoc => {
+          this.isEspecialista = especialistaDoc.exists; // Ensure this is correctly assigned
+        });
       } else {
-        // Si el usuario cierra sesión, restablecer isPaciente e isAdministrador a false
+        // If the user logs out, reset isPaciente, isAdministrador, and isEspecialista to false
         this.isPaciente = false;
         this.isAdministrador = false;
+        this.isEspecialista = false; // Ensure consistency
       }
     });
   }

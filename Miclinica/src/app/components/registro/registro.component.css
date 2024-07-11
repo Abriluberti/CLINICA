@@ -6,38 +6,44 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    margin-bottom: 20px;
     padding: 0;
     box-sizing: border-box;
 }
 
 .container {
-    max-width: 1600px;
-    padding: 60px;
+    max-width: 600px;
+    padding: 20px;
     background-color: #349cb6;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     border-radius: 40px;
     margin: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-
+.form-wrapper {
+    max-height: 60vh;
+    overflow-y: auto;
+    width: 100%;
+    padding-right: 10px; /* To avoid scrollbar overlapping content */
+}
 
 .img-paciente {
     float: left; /* O right si prefieres que estén a la derecha */
     margin-right: 50px; /* Espacio entre la imagen y el formulario */
     max-width: 15%;
-    
 }
+
 .img-especialista {
     float: right; /* O right si prefieres que estén a la derecha */
     margin-right: 50px; /* Espacio entre la imagen y el formulario */
     max-width: 15%;
-    
 }
+
 .container form {
     margin-bottom: 20px;
-  }
-  
+}
 
 .registro-paciente img,
 .registro-especialista img {
@@ -67,7 +73,7 @@ input[type=number],
 input[type=email],
 input[type=password],
 input[type=file] {
-    padding: 10px;
+    padding: 1px;
     margin: 10px 0;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -105,10 +111,17 @@ input[type=submit]:hover {
 
 /* Estilos del spinner de carga */
 .spinner {
-    border: 16px solid #f3f3f3; /* Gris claro */
-    border-top: 16px solid #3498db; /* Azul */
+    border: 4px solid rgba(190, 24, 24, 0.3); /* Borde del spinner */
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 1s linear infinite;
+    border-top: 4px solid #ffffff; /* Borde superior blanco */
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite; /* Animación de rotación */
+    background: linear-gradient(45deg, #ff0000, #5755e9); /* Fondo degradado */
+  }
+  
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

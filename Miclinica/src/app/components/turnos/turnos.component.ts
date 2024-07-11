@@ -1,73 +1,106 @@
-import { CommonModule, NgFor } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { TurnosService } from '../../servicios/turnos.service';
-import { Observable } from 'rxjs';
-import Swal from 'sweetalert2';
-import { Turno } from '../../models/turno.model';
+import { Turno } from '../../clases/turno';
+import Swal, { SweetAlertOptions } from 'sweetalert2';
+import { Paciente } from '../../clases/paciente';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { HoverTraceDirectiveDirective } from '../../directives/hover-trace-directive.directive';
 
 @Component({
   selector: 'app-turnos',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, FormsModule, HoverTraceDirectiveDirective ],
   templateUrl: './turnos.component.html',
-  styleUrl: './turnos.component.css'
+  styleUrls: ['./turnos.component.css']
 })
 export class TurnosComponent implements OnInit {
   turnos: Turno[] = [];
   turnosFiltrados: Turno[] = [];
-  filtroEspecialidad: string = '';
-  filtroEspecialista: string = '';
+  filtroBusqueda: string = '';
+  especialistaId: string = '';
 
-  constructor(private turnosService: TurnosService) {}
+  @Input() pacienteNombre: string = '';
+
+  constructor(private turnosService: TurnosService, private afAuth: AngularFireAuth) {}
 
   ngOnInit(): void {
-    this.obtenerTurnos();
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.especialistaId = user.uid;
+        this.obtenerTurnos();
+        this.filtrarTurnos();
+      } else {
+        console.error('No se encontró el usuario autenticado.');
+      }
+    });
   }
 
-  obtenerTurnos() {
+  obtenerTurnos(): void {
     this.turnosService.getTurnos().subscribe(turnos => {
       this.turnos = turnos;
+      this.filtrarTurnos();
     });
   }
 
-  filtrarTurnos() {
-    this.turnosFiltrados = this.turnos.filter(turno => {
-      const especialidad = turno.especialidadId.toLowerCase();
-      const especialista = turno.especialistaId.toLowerCase();
-      const filtroEspecialidad = this.filtroEspecialidad.toLowerCase();
-      const filtroEspecialista = this.filtroEspecialista.toLowerCase();
-      const estado = turno.estado.toLowerCase(); // Convertir el estado a minúsculas
-  
-      // Excluir los turnos cancelados de la lista filtrada
-      if (estado === 'cancelado') {
-        return false;
-      }
-  
-      return especialidad.includes(filtroEspecialidad) && especialista.includes(filtroEspecialista);
-    });
-  }
-  
-
-  mostrarCancelar(estado: string): boolean {
-    return estado !== 'Aceptado' && estado !== 'Realizado' && estado !== 'Rechazado';
+  buscarTurnos(): void {
+    this.filtrarTurnos();
   }
 
-  cancelarTurno(turnoId: string) {
-    const comentario = prompt('Ingrese el motivo de la cancelación:');
-    if (comentario) {
-      this.turnosService.cancelarTurno(turnoId, comentario).then(() => {
-        this.obtenerTurnos(); // Actualizar la lista de turnos después de cancelar uno
-      }).catch(error => {
-        console.error('Error al cancelar turno:', error);
-        Swal.fire('Error', 'Ocurrió un error al cancelar el turno. Por favor, inténtalo nuevamente.', 'error');
+  filtrarTurnos(): void {
+    if (this.filtroBusqueda.trim() !== '') {
+      const busqueda = this.filtroBusqueda.trim().toLowerCase();
+      this.turnosFiltrados = this.turnos.filter(turno => {
+        const especialidadMatches = turno.especialidades?.some(especialidad => especialidad.toLowerCase().includes(busqueda)) || false;
+        const especialistaMatches = turno.especialistaNombre?.toLowerCase().includes(busqueda) || false;
+        return especialidadMatches || especialistaMatches;
       });
+    } else {
+      this.turnosFiltrados = this.turnos;
     }
   }
 
-  buscarTurnos() {
-    // Aquí implementa la lógica para buscar turnos según la especialidad y el especialista
-    // Utiliza la función filtrarTurnos() para aplicar los filtros
-    this.filtrarTurnos();
+  puedeCancelar(turno: Turno): boolean {
+    return turno.estado === 'Pendiente';
   }
+
+  confirmarCancelarTurno(turnoId: string): void {
+    console.log('ID del turno a cancelar:', turnoId); // Verifica el ID que estás pasando
+    const confirmOptions: SweetAlertOptions = {
+      title: `¿Estás seguro de cancelar el turno ?`,
+      input: 'text',
+      inputPlaceholder: 'Motivo de la cancelación',
+      showCancelButton: true,
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar',
+      inputValidator: (value) => {
+        if (!value) {
+          return '¡Debes ingresar un motivo!';
+        }
+        return null; // Devolver null si la validación es exitosa
+      }
+    };
+  
+    Swal.fire(confirmOptions).then((result) => {
+      if (result.isConfirmed) {
+        this.cancelarTurno(turnoId, result.value);
+      }
+    });
+  }
+  
+
+  cancelarTurno(turnoId: string, comentario: string): void {
+    console.log('Cancelando turno con ID:', turnoId);
+    this.turnosService.cancelarTurno(turnoId, comentario)
+      .then(() => {
+        Swal.fire('Turno cancelado', '', 'success');
+        // Aquí puedes actualizar la lista de turnos si es necesario
+      })
+      .catch(error => {
+        console.error('Error al cancelar el turno:', error);
+        Swal.fire('Error', 'Ocurrió un error al cancelar el turno. Por favor, inténtalo nuevamente.', 'error');
+      });
+  }
+  
 }

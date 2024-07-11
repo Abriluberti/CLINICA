@@ -1,0 +1,66 @@
+<div class="container-scroll">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="container mt-3">
+    <div class="form-group">
+      <label for="altura">Altura en cm:</label>
+      <input type="number" formControlName="altura" id="altura" class="form-control" />
+      <div *ngIf="form.controls['altura'].errors && form.controls['altura'].touched">
+        <small class="text-danger">Altura requerida (entre 100 y 230 cm).</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="peso">Peso en kg:</label>
+      <input type="number" formControlName="peso" id="peso" class="form-control" />
+      <div *ngIf="form.controls['peso'].errors && form.controls['peso'].touched">
+        <small class="text-danger">Peso requerido (entre 1 y 200 kg).</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="temperatura">Temperatura:</label>
+      <input type="number" formControlName="temperatura" id="temperatura" class="form-control" />
+      <div *ngIf="form.controls['temperatura'].errors && form.controls['temperatura'].touched">
+        <small class="text-danger">Temperatura requerida (entre 34 y 42 grados).</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="presion">Presión:</label>
+      <input formControlName="presion" id="presion" class="form-control" />
+      <div *ngIf="form.controls['presion'].errors && form.controls['presion'].touched">
+        <small class="text-danger">Presión requerida.</small>
+      </div>
+    </div>
+
+    <!-- Datos dinámicos -->
+    <div formArrayName="datosDinamicos">
+      <div *ngFor="let dato of datosDinamicos.controls; let i = index" [formGroupName]="i" class="form-row align-items-center">
+        <div class="col">
+          <label for="clave">Clave:</label>
+          <input type="text" formControlName="clave" id="clave" class="form-control" />
+          <div *ngIf="dato.get('clave')?.invalid && dato.get('clave')?.touched">
+            <small class="text-danger">La clave es requerida.</small>
+          </div>
+        </div>
+        <div class="col">
+          <label for="valor">Valor:</label>
+          <input type="text" formControlName="valor" id="valor" class="form-control" />
+          <div *ngIf="dato.get('valor')?.invalid && dato.get('valor')?.touched">
+            <small class="text-danger">El valor es requerido.</small>
+          </div>
+        </div>
+        <div class="col-auto align-self-end">
+          <button type="button" class="btn btn-danger" (click)="quitarDatoDinamico(i)">
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-primary mt-3" (click)="agregarDatoDinamico()">
+      Agregar Dato Dinámico
+    </button>
+
+    <button type="submit" class="btn btn-primary mt-3">Guardar Historia Clínica</button>
+  </form>
+</div>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-body-tertiary fixed-top">
+<nav   class="navbar navbar-expand-md bg-body-tertiary fixed-top">
     <div class="container-fluid d-flex justify-content-between align-items-center">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -12,12 +12,24 @@
             <a routerLink="/gestion" class="nav-link">Usuarios</a>
           </li>
           <li class="nav-item" >
-            <a routerLink="/solicitud" class="nav-link" *ngIf="isAdministrador, isPaciente"> Solicitar Turnos</a>
+            <a routerLink="/solicitud" class="nav-link" *ngIf="isAdministrador || isPaciente"> Solicitar Turnos</a>
           </li>
           <li class="nav-item" >
-            <a routerLink="/Turnos" class="nav-link">Turnos</a>
+            <a routerLink="/Turnos" class="nav-link"  *ngIf="isAdministrador">Turnos</a>
           </li>
-        
+          <li class="nav-item" >
+            <a routerLink="/Graficoss" class="nav-link"  *ngIf="isAdministrador">Graficos</a>
+          </li>
+          <li class="nav-item" >
+            <a routerLink="/pacientes" class="nav-link"   *ngIf="isEspecialista"  >Pacientes</a>
+          </li>
+          <li class="nav-item" >
+            <a routerLink="/EspecialistaTurno" class="nav-link"   *ngIf="isEspecialista"  >EspecialistaTurno</a>
+          </li>
+          <li class="nav-item" *ngIf="isAdministrador || isPaciente || isEspecialista">
+            <a routerLink="/miperfil" class="nav-link">Mi perfil</a>
+          </li>
+      
           <li class="nav-item" *ngIf="isPaciente">
             <a routerLink="/misturnos" class="nav-link">Mis Turnos</a>
           </li>
@@ -26,4 +38,3 @@
     </div>
   </nav>
   <router-outlet></router-outlet>
-  

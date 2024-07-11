@@ -126,3 +126,463 @@
 [debug] [2024-06-13T11:43:39.597Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases versionName=projects%2F445632815623%2Fsites%2Fclinica-efd25%2Fversions%2Fec24321b67f5ce28
 [debug] [2024-06-13T11:43:39.597Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases {}
 [debug] [2024-06-13T11:43:39.881Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases 200
+[debug] [2024-06-27T11:59:17.956Z] ----------------------------------------------------------------------
+[debug] [2024-06-27T11:59:17.959Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\user\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --debug
+[debug] [2024-06-27T11:59:17.959Z] CLI Version:   13.10.0
+[debug] [2024-06-27T11:59:17.959Z] Platform:      win32
+[debug] [2024-06-27T11:59:17.959Z] Node Version:  v20.12.2
+[debug] [2024-06-27T11:59:17.959Z] Time:          Thu Jun 27 2024 08:59:17 GMT-0300 (hora estándar de Argentina)
+[debug] [2024-06-27T11:59:17.960Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-27T11:59:17.963Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-06-27T11:59:18.086Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-27T11:59:18.087Z] > authorizing via signed-in user (abriluberti11@gmail.com)
+[debug] [2024-06-27T11:59:18.088Z] [iam] checking project clinica-efd25 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-06-27T11:59:18.089Z] > refreshing access token with scopes: []
+[debug] [2024-06-27T11:59:18.090Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-06-27T11:59:18.090Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-06-27T11:59:18.315Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-06-27T11:59:18.316Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-06-27T11:59:18.331Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions [none]
+[debug] [2024-06-27T11:59:18.332Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions x-goog-quota-user=projects/clinica-efd25
+[debug] [2024-06-27T11:59:18.333Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-06-27T11:59:18.530Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-06-27T11:59:18.531Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-06-27T11:59:19.384Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions 200
+[debug] [2024-06-27T11:59:19.384Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-06-27T11:59:19.385Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/clinica-efd25 [none]
+[debug] [2024-06-27T11:59:19.884Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/clinica-efd25 200
+[debug] [2024-06-27T11:59:19.886Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/clinica-efd25 {"projectId":"clinica-efd25","projectNumber":"445632815623","displayName":"clinica","name":"projects/clinica-efd25","resources":{"hostingSite":"clinica-efd25","storageBucket":"clinica-efd25.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_a018ee91-d38c-4457-a75c-36c8705e5c15"}
+[info] 
+[info] === Deploying to 'clinica-efd25'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2024-06-27T11:59:19.902Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions [none]
+[debug] [2024-06-27T11:59:19.903Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2024-06-27T11:59:21.852Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions 200
+[debug] [2024-06-27T11:59:21.853Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions {"name":"projects/445632815623/sites/clinica-efd25/versions/ceedec2b602b2017","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[clinica-efd25]: beginning deploy... 
+[info] i  hosting[clinica-efd25]: found 22 files in y 
+[debug] [2024-06-27T11:59:21.863Z] [hosting] uploading with 200 concurrency
+[debug] [2024-06-27T11:59:21.912Z] [hosting] hash cache [eQ] stored for 22 files
+[debug] [2024-06-27T11:59:21.913Z] [hosting][hash queue][FINAL] {"max":44,"min":1,"avg":9.409090909090908,"active":0,"complete":22,"success":22,"errored":0,"retried":0,"total":22,"elapsed":48}
+[debug] [2024-06-27T11:59:21.914Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/ceedec2b602b2017:populateFiles [none]
+[debug] [2024-06-27T11:59:21.914Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/ceedec2b602b2017:populateFiles {"files":{"/favicon.ico":"aa414b3c791f02cf3de4321232eb32c5270cb3181aaa4c2ffc39137217fa2d0d","/assets/clinic.png":"4762b57e6e0ee0208ef5c347cdca916ee0db413894a004832264d36f288ab9fe","/assets/especialista.gif":"e2ab3247afa4ecc005d46eec4fd67487911183fff108aca93db9e7b00de4abee","/assets/fondi.jpeg":"69e80cca90322213fa648ad0bcda1faa00495248764c3f30e1bff00a81103b2f","/assets/fondo.jpeg":"a945a4cf4bae8e034ea5bb186a42c36ffdfc8a01d2ae0493a574f1ae1badb133","/assets/onli.jpeg":"7d035145cd15e8c52a60fa8686132e0d18a15ab40505ecd8c41ce9b395a34a55","/assets/paciente.gif":"6ca933354785d48aa7a6edb480df908fac1627bb1f93daa87803684f563ee930","/chunk-GYIVHC42.js":"c5fe1827556e01fcb4b9990fea6817d618d2b95fdf0bec9cda86c5687cb05631","/index.html":"436b1fb8038886d7dc35ab5cf0be2a301d6ec0e29305d4bb706bbbcc4caacb77","/styles-O4ZRP6GB.css":"2abbf8708ef72905ad6262174573d61335a6e7255283591469a13056f0e29785","/polyfills-A7MJM4D4.js":"7756b8b41c82a0a87e6caf58b0a6230718270d00dbe0be49235c47528e7fd4a2","/assets/administrador.png":"d82972ab1df2b62d43b8e6eb895e13e28afcb3e8b155f01ed20c7691c1db7a2d","/assets/Especialista.png":"0af25bd611fe1314d68b1e032c23f2f065ccdcff975480416549bd6d5d5394c1","/assets/PacienteUno.png":"2a781ed088466ebe568072d738cb1fb4332129cf8859041d8e9cbcfd578dba95","/assets/PacienteDos.png":"e1ed926d5706c4f5bf04a60c58e0af4fe59e8838212166bab046c7aecb08ced8","/assets/Dentista.png":"1e17c7ed1ad6471b47d76b971bc79160a18a078c1247262fa1a8a0172d5daf25","/assets/especialidades/Cardiología.png":"a1f90f0b118db26f547ad8e2f21d781ed476a2fc030de162d7b756e88603bc6d","/assets/PacienteTres.png":"543f958ac7751fe2582b384dc1464711ec246234c44054de9b36f1100ec9026e","/chunk-YYW5CVZ2.js":"83896a7e71c1a194c90ef8a0829d2287e41ef69db27543409948c0addc8ad7cf","/assets/especialidades/dentista.png":"c0f05584da213b4a2c9fade2a8df8705f68dba9b37b9831cab3deaf18779ad7e","/assets/especialidades/Pediatra.png":"6e454284f8900b1aa369e922725908fd643df426078fa3d1712f15e3294e1181","/main-FWVVOAQZ.js":"796203db556e9ce815419235fde94de06a0fd3a12c61e5aaab22b3c7d0b30b27"}}
+[debug] [2024-06-27T11:59:22.492Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/ceedec2b602b2017:populateFiles 200
+[debug] [2024-06-27T11:59:22.493Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/ceedec2b602b2017:populateFiles {"uploadRequiredHashes":["543f958ac7751fe2582b384dc1464711ec246234c44054de9b36f1100ec9026e","796203db556e9ce815419235fde94de06a0fd3a12c61e5aaab22b3c7d0b30b27","c5fe1827556e01fcb4b9990fea6817d618d2b95fdf0bec9cda86c5687cb05631","6e454284f8900b1aa369e922725908fd643df426078fa3d1712f15e3294e1181","2a781ed088466ebe568072d738cb1fb4332129cf8859041d8e9cbcfd578dba95","436b1fb8038886d7dc35ab5cf0be2a301d6ec0e29305d4bb706bbbcc4caacb77","0af25bd611fe1314d68b1e032c23f2f065ccdcff975480416549bd6d5d5394c1","e1ed926d5706c4f5bf04a60c58e0af4fe59e8838212166bab046c7aecb08ced8","1e17c7ed1ad6471b47d76b971bc79160a18a078c1247262fa1a8a0172d5daf25","d82972ab1df2b62d43b8e6eb895e13e28afcb3e8b155f01ed20c7691c1db7a2d","c0f05584da213b4a2c9fade2a8df8705f68dba9b37b9831cab3deaf18779ad7e","a1f90f0b118db26f547ad8e2f21d781ed476a2fc030de162d7b756e88603bc6d"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files"}
+[debug] [2024-06-27T11:59:22.498Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/543f958ac7751fe2582b384dc1464711ec246234c44054de9b36f1100ec9026e [none]
+[debug] [2024-06-27T11:59:22.498Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/543f958ac7751fe2582b384dc1464711ec246234c44054de9b36f1100ec9026e [stream]
+[debug] [2024-06-27T11:59:22.501Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/796203db556e9ce815419235fde94de06a0fd3a12c61e5aaab22b3c7d0b30b27 [none]
+[debug] [2024-06-27T11:59:22.502Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/796203db556e9ce815419235fde94de06a0fd3a12c61e5aaab22b3c7d0b30b27 [stream]
+[debug] [2024-06-27T11:59:22.504Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/c5fe1827556e01fcb4b9990fea6817d618d2b95fdf0bec9cda86c5687cb05631 [none]
+[debug] [2024-06-27T11:59:22.504Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/c5fe1827556e01fcb4b9990fea6817d618d2b95fdf0bec9cda86c5687cb05631 [stream]
+[debug] [2024-06-27T11:59:22.506Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/6e454284f8900b1aa369e922725908fd643df426078fa3d1712f15e3294e1181 [none]
+[debug] [2024-06-27T11:59:22.507Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/6e454284f8900b1aa369e922725908fd643df426078fa3d1712f15e3294e1181 [stream]
+[debug] [2024-06-27T11:59:22.508Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/2a781ed088466ebe568072d738cb1fb4332129cf8859041d8e9cbcfd578dba95 [none]
+[debug] [2024-06-27T11:59:22.509Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/2a781ed088466ebe568072d738cb1fb4332129cf8859041d8e9cbcfd578dba95 [stream]
+[debug] [2024-06-27T11:59:22.511Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/436b1fb8038886d7dc35ab5cf0be2a301d6ec0e29305d4bb706bbbcc4caacb77 [none]
+[debug] [2024-06-27T11:59:22.511Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/436b1fb8038886d7dc35ab5cf0be2a301d6ec0e29305d4bb706bbbcc4caacb77 [stream]
+[debug] [2024-06-27T11:59:22.513Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/0af25bd611fe1314d68b1e032c23f2f065ccdcff975480416549bd6d5d5394c1 [none]
+[debug] [2024-06-27T11:59:22.514Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/0af25bd611fe1314d68b1e032c23f2f065ccdcff975480416549bd6d5d5394c1 [stream]
+[debug] [2024-06-27T11:59:22.515Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/e1ed926d5706c4f5bf04a60c58e0af4fe59e8838212166bab046c7aecb08ced8 [none]
+[debug] [2024-06-27T11:59:22.516Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/e1ed926d5706c4f5bf04a60c58e0af4fe59e8838212166bab046c7aecb08ced8 [stream]
+[debug] [2024-06-27T11:59:22.517Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/1e17c7ed1ad6471b47d76b971bc79160a18a078c1247262fa1a8a0172d5daf25 [none]
+[debug] [2024-06-27T11:59:22.518Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/1e17c7ed1ad6471b47d76b971bc79160a18a078c1247262fa1a8a0172d5daf25 [stream]
+[debug] [2024-06-27T11:59:22.519Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/d82972ab1df2b62d43b8e6eb895e13e28afcb3e8b155f01ed20c7691c1db7a2d [none]
+[debug] [2024-06-27T11:59:22.520Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/d82972ab1df2b62d43b8e6eb895e13e28afcb3e8b155f01ed20c7691c1db7a2d [stream]
+[debug] [2024-06-27T11:59:22.521Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/c0f05584da213b4a2c9fade2a8df8705f68dba9b37b9831cab3deaf18779ad7e [none]
+[debug] [2024-06-27T11:59:22.522Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/c0f05584da213b4a2c9fade2a8df8705f68dba9b37b9831cab3deaf18779ad7e [stream]
+[debug] [2024-06-27T11:59:22.523Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/a1f90f0b118db26f547ad8e2f21d781ed476a2fc030de162d7b756e88603bc6d [none]
+[debug] [2024-06-27T11:59:22.523Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/a1f90f0b118db26f547ad8e2f21d781ed476a2fc030de162d7b756e88603bc6d [stream]
+[debug] [2024-06-27T11:59:22.525Z] [hosting][populate queue][FINAL] {"max":586,"min":586,"avg":586,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":614}
+[debug] [2024-06-27T11:59:22.525Z] [hosting] uploads queued: 12
+[info] i  hosting: uploading new files [0/12] (0%) 
+[debug] [2024-06-27T11:59:24.038Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/543f958ac7751fe2582b384dc1464711ec246234c44054de9b36f1100ec9026e 200
+[debug] [2024-06-27T11:59:24.039Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/543f958ac7751fe2582b384dc1464711ec246234c44054de9b36f1100ec9026e [stream]
+[debug] [2024-06-27T11:59:24.643Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/436b1fb8038886d7dc35ab5cf0be2a301d6ec0e29305d4bb706bbbcc4caacb77 200
+[debug] [2024-06-27T11:59:24.645Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/436b1fb8038886d7dc35ab5cf0be2a301d6ec0e29305d4bb706bbbcc4caacb77 [stream]
+[debug] [2024-06-27T11:59:24.808Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/1e17c7ed1ad6471b47d76b971bc79160a18a078c1247262fa1a8a0172d5daf25 200
+[debug] [2024-06-27T11:59:24.810Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/1e17c7ed1ad6471b47d76b971bc79160a18a078c1247262fa1a8a0172d5daf25 [stream]
+[debug] [2024-06-27T11:59:24.821Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/d82972ab1df2b62d43b8e6eb895e13e28afcb3e8b155f01ed20c7691c1db7a2d 200
+[debug] [2024-06-27T11:59:24.823Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/d82972ab1df2b62d43b8e6eb895e13e28afcb3e8b155f01ed20c7691c1db7a2d [stream]
+[debug] [2024-06-27T11:59:24.839Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/c5fe1827556e01fcb4b9990fea6817d618d2b95fdf0bec9cda86c5687cb05631 200
+[debug] [2024-06-27T11:59:24.840Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/c5fe1827556e01fcb4b9990fea6817d618d2b95fdf0bec9cda86c5687cb05631 [stream]
+[debug] [2024-06-27T11:59:24.970Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/c0f05584da213b4a2c9fade2a8df8705f68dba9b37b9831cab3deaf18779ad7e 200
+[debug] [2024-06-27T11:59:24.970Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/c0f05584da213b4a2c9fade2a8df8705f68dba9b37b9831cab3deaf18779ad7e [stream]
+[debug] [2024-06-27T11:59:25.012Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/796203db556e9ce815419235fde94de06a0fd3a12c61e5aaab22b3c7d0b30b27 200
+[debug] [2024-06-27T11:59:25.013Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/796203db556e9ce815419235fde94de06a0fd3a12c61e5aaab22b3c7d0b30b27 [stream]
+[debug] [2024-06-27T11:59:25.364Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/a1f90f0b118db26f547ad8e2f21d781ed476a2fc030de162d7b756e88603bc6d 200
+[debug] [2024-06-27T11:59:25.365Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/a1f90f0b118db26f547ad8e2f21d781ed476a2fc030de162d7b756e88603bc6d [stream]
+[debug] [2024-06-27T11:59:25.548Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/e1ed926d5706c4f5bf04a60c58e0af4fe59e8838212166bab046c7aecb08ced8 200
+[debug] [2024-06-27T11:59:25.548Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/e1ed926d5706c4f5bf04a60c58e0af4fe59e8838212166bab046c7aecb08ced8 [stream]
+[debug] [2024-06-27T11:59:25.667Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/6e454284f8900b1aa369e922725908fd643df426078fa3d1712f15e3294e1181 200
+[debug] [2024-06-27T11:59:25.668Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/6e454284f8900b1aa369e922725908fd643df426078fa3d1712f15e3294e1181 [stream]
+[debug] [2024-06-27T11:59:25.669Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/0af25bd611fe1314d68b1e032c23f2f065ccdcff975480416549bd6d5d5394c1 200
+[debug] [2024-06-27T11:59:25.669Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/0af25bd611fe1314d68b1e032c23f2f065ccdcff975480416549bd6d5d5394c1 [stream]
+[info] i  hosting: uploading new files [11/12] (91%) 
+[debug] [2024-06-27T11:59:25.920Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/2a781ed088466ebe568072d738cb1fb4332129cf8859041d8e9cbcfd578dba95 200
+[debug] [2024-06-27T11:59:25.921Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ceedec2b602b2017/files/2a781ed088466ebe568072d738cb1fb4332129cf8859041d8e9cbcfd578dba95 [stream]
+[debug] [2024-06-27T11:59:25.921Z] [hosting][upload queue][FINAL] {"max":3425,"min":1544,"avg":2613.75,"active":0,"complete":12,"success":12,"errored":0,"retried":0,"total":12,"elapsed":3426}
+[info] i  hosting: upload complete 
+[info] +  hosting[clinica-efd25]: file upload complete 
+[debug] [2024-06-27T11:59:25.922Z] [hosting] deploy completed after 4068ms
+[debug] [2024-06-27T11:59:25.923Z] [
+  {
+    "config": {
+      "public": "y",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "clinica-efd25"
+    },
+    "version": "projects/445632815623/sites/clinica-efd25/versions/ceedec2b602b2017"
+  }
+]
+[info] i  hosting[clinica-efd25]: finalizing version... 
+[debug] [2024-06-27T11:59:25.926Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/ceedec2b602b2017 updateMask=status%2Cconfig
+[debug] [2024-06-27T11:59:25.927Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/ceedec2b602b2017 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2024-06-27T11:59:26.569Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/ceedec2b602b2017 200
+[debug] [2024-06-27T11:59:26.570Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/ceedec2b602b2017 {"name":"projects/445632815623/sites/clinica-efd25/versions/ceedec2b602b2017","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2024-06-27T11:59:19.203191Z","createUser":{"email":"abriluberti11@gmail.com"},"finalizeTime":"2024-06-27T11:59:24.517555Z","finalizeUser":{"email":"abriluberti11@gmail.com"}}
+[debug] [2024-06-27T11:59:26.572Z] [hosting] finalized version for clinica-efd25:[object Object]
+[info] +  hosting[clinica-efd25]: version finalized 
+[info] i  hosting[clinica-efd25]: releasing new version... 
+[debug] [2024-06-27T11:59:26.575Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases versionName=projects%2F445632815623%2Fsites%2Fclinica-efd25%2Fversions%2Fceedec2b602b2017
+[debug] [2024-06-27T11:59:26.575Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases {}
+[debug] [2024-06-27T11:59:27.475Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases 200
+[debug] [2024-07-04T11:50:24.799Z] ----------------------------------------------------------------------
+[debug] [2024-07-04T11:50:24.802Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\user\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --debug
+[debug] [2024-07-04T11:50:24.802Z] CLI Version:   13.10.0
+[debug] [2024-07-04T11:50:24.803Z] Platform:      win32
+[debug] [2024-07-04T11:50:24.803Z] Node Version:  v20.12.2
+[debug] [2024-07-04T11:50:24.803Z] Time:          Thu Jul 04 2024 08:50:24 GMT-0300 (hora estándar de Argentina)
+[debug] [2024-07-04T11:50:24.803Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-07-04T11:50:24.806Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-07-04T11:50:24.932Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-04T11:50:24.933Z] > authorizing via signed-in user (abriluberti11@gmail.com)
+[debug] [2024-07-04T11:50:24.933Z] [iam] checking project clinica-efd25 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-07-04T11:50:24.934Z] > refreshing access token with scopes: []
+[debug] [2024-07-04T11:50:24.935Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-07-04T11:50:24.936Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-07-04T11:50:25.103Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-07-04T11:50:25.103Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-07-04T11:50:25.112Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions [none]
+[debug] [2024-07-04T11:50:25.112Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions x-goog-quota-user=projects/clinica-efd25
+[debug] [2024-07-04T11:50:25.113Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-07-04T11:50:25.428Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-07-04T11:50:25.429Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-07-04T11:50:26.019Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions 200
+[debug] [2024-07-04T11:50:26.020Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-07-04T11:50:26.022Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/clinica-efd25 [none]
+[debug] [2024-07-04T11:50:26.440Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/clinica-efd25 200
+[debug] [2024-07-04T11:50:26.441Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/clinica-efd25 {"projectId":"clinica-efd25","projectNumber":"445632815623","displayName":"clinica","name":"projects/clinica-efd25","resources":{"hostingSite":"clinica-efd25","storageBucket":"clinica-efd25.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_a018ee91-d38c-4457-a75c-36c8705e5c15"}
+[info] 
+[info] === Deploying to 'clinica-efd25'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2024-07-04T11:50:26.449Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions [none]
+[debug] [2024-07-04T11:50:26.450Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2024-07-04T11:50:28.502Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions 200
+[debug] [2024-07-04T11:50:28.503Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions {"name":"projects/445632815623/sites/clinica-efd25/versions/ef165a7dc54caefd","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[clinica-efd25]: beginning deploy... 
+[info] i  hosting[clinica-efd25]: found 29 files in y 
+[debug] [2024-07-04T11:50:28.518Z] [hosting] uploading with 200 concurrency
+[debug] [2024-07-04T11:50:28.582Z] [hosting] hash cache [eQ] stored for 29 files
+[debug] [2024-07-04T11:50:28.583Z] [hosting][hash queue][FINAL] {"max":57,"min":1,"avg":7.620689655172414,"active":0,"complete":29,"success":29,"errored":0,"retried":0,"total":29,"elapsed":62}
+[debug] [2024-07-04T11:50:28.584Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/ef165a7dc54caefd:populateFiles [none]
+[debug] [2024-07-04T11:50:28.584Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/ef165a7dc54caefd:populateFiles {"files":{"/favicon.ico":"aa414b3c791f02cf3de4321232eb32c5270cb3181aaa4c2ffc39137217fa2d0d","/assets/administrador.png":"d82972ab1df2b62d43b8e6eb895e13e28afcb3e8b155f01ed20c7691c1db7a2d","/assets/clinic.png":"4762b57e6e0ee0208ef5c347cdca916ee0db413894a004832264d36f288ab9fe","/assets/Dentista.png":"1e17c7ed1ad6471b47d76b971bc79160a18a078c1247262fa1a8a0172d5daf25","/assets/especialista.gif":"e2ab3247afa4ecc005d46eec4fd67487911183fff108aca93db9e7b00de4abee","/assets/Especialista.png":"0af25bd611fe1314d68b1e032c23f2f065ccdcff975480416549bd6d5d5394c1","/assets/fondi.jpeg":"69e80cca90322213fa648ad0bcda1faa00495248764c3f30e1bff00a81103b2f","/assets/fondo.jpeg":"a945a4cf4bae8e034ea5bb186a42c36ffdfc8a01d2ae0493a574f1ae1badb133","/assets/onli.jpeg":"7d035145cd15e8c52a60fa8686132e0d18a15ab40505ecd8c41ce9b395a34a55","/assets/paciente.gif":"6ca933354785d48aa7a6edb480df908fac1627bb1f93daa87803684f563ee930","/assets/PacienteDos.png":"e1ed926d5706c4f5bf04a60c58e0af4fe59e8838212166bab046c7aecb08ced8","/assets/PacienteTres.png":"543f958ac7751fe2582b384dc1464711ec246234c44054de9b36f1100ec9026e","/assets/PacienteUno.png":"2a781ed088466ebe568072d738cb1fb4332129cf8859041d8e9cbcfd578dba95","/assets/especialidades/Cardiología.png":"a1f90f0b118db26f547ad8e2f21d781ed476a2fc030de162d7b756e88603bc6d","/assets/especialidades/dentista.png":"c0f05584da213b4a2c9fade2a8df8705f68dba9b37b9831cab3deaf18779ad7e","/assets/especialidades/Pediatra.png":"6e454284f8900b1aa369e922725908fd643df426078fa3d1712f15e3294e1181","/chunk-AFEX6KIG.js":"ca68d701b52bc2eafca06307ad11ef9bfac287fe0689a28d22a9be67cab3b0de","/chunk-B24A6PXI.js":"f3d7759d022d784a772f0de7e6775029bb620698d8eb0bb7e3a8c57a4cbec410","/chunk-ELJ22P57.js":"97caceda9c17a87025a6839afa1abf849e28d149957a0949e06b04c640df1968","/chunk-4D3F3NA6.js":"4ef0d9dda3fea56539ed5bfa1cbe33d2dfceba25a3dbf6e377a49ec8f28b3e0e","/index.html":"b32e8ef2aa770fb4412ef9223ef3ddd2478b19e7a128e70627f85ea09bfa0a03","/chunk-FK6H3RFT.js":"fab0832c8f067246657564475277ae5d7f0ff32ea1cfad01162f50e264ed5419","/polyfills-A7MJM4D4.js":"7756b8b41c82a0a87e6caf58b0a6230718270d00dbe0be49235c47528e7fd4a2","/styles-O4ZRP6GB.css":"2abbf8708ef72905ad6262174573d61335a6e7255283591469a13056f0e29785","/chunk-DSML4SGR.js":"d14b0de190d11a260ead824a6e8392a28a65032019ac6cd933c5fd541fa5a0ce","/chunk-4C3AV5I2.js":"2659582a434b56c339ccf6255dcaf9397b5cbd74d51d4a38c108b4f97728dd0e","/chunk-LOCR433K.js":"678c7a18b91308864683304889e253c12f334d427a29139644616cc80d977fa6","/assets/image.png":"4802d7ba8da2bdb8307cc083aca30153a362f1c7ddc626e6e10cf40a689fdac0","/main-CMKH3YJK.js":"4b818efd1be0d571c2231d4b7cdc12fbaaefbce7a987458a6618afeaee1446d9"}}
+[debug] [2024-07-04T11:50:29.230Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/ef165a7dc54caefd:populateFiles 200
+[debug] [2024-07-04T11:50:29.231Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/ef165a7dc54caefd:populateFiles {"uploadRequiredHashes":["f3d7759d022d784a772f0de7e6775029bb620698d8eb0bb7e3a8c57a4cbec410","fab0832c8f067246657564475277ae5d7f0ff32ea1cfad01162f50e264ed5419","b32e8ef2aa770fb4412ef9223ef3ddd2478b19e7a128e70627f85ea09bfa0a03","678c7a18b91308864683304889e253c12f334d427a29139644616cc80d977fa6","4802d7ba8da2bdb8307cc083aca30153a362f1c7ddc626e6e10cf40a689fdac0","2659582a434b56c339ccf6255dcaf9397b5cbd74d51d4a38c108b4f97728dd0e","4b818efd1be0d571c2231d4b7cdc12fbaaefbce7a987458a6618afeaee1446d9","4ef0d9dda3fea56539ed5bfa1cbe33d2dfceba25a3dbf6e377a49ec8f28b3e0e","ca68d701b52bc2eafca06307ad11ef9bfac287fe0689a28d22a9be67cab3b0de","97caceda9c17a87025a6839afa1abf849e28d149957a0949e06b04c640df1968","d14b0de190d11a260ead824a6e8392a28a65032019ac6cd933c5fd541fa5a0ce"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files"}
+[debug] [2024-07-04T11:50:29.234Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/f3d7759d022d784a772f0de7e6775029bb620698d8eb0bb7e3a8c57a4cbec410 [none]
+[debug] [2024-07-04T11:50:29.234Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/f3d7759d022d784a772f0de7e6775029bb620698d8eb0bb7e3a8c57a4cbec410 [stream]
+[debug] [2024-07-04T11:50:29.236Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/fab0832c8f067246657564475277ae5d7f0ff32ea1cfad01162f50e264ed5419 [none]
+[debug] [2024-07-04T11:50:29.236Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/fab0832c8f067246657564475277ae5d7f0ff32ea1cfad01162f50e264ed5419 [stream]
+[debug] [2024-07-04T11:50:29.238Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/b32e8ef2aa770fb4412ef9223ef3ddd2478b19e7a128e70627f85ea09bfa0a03 [none]
+[debug] [2024-07-04T11:50:29.238Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/b32e8ef2aa770fb4412ef9223ef3ddd2478b19e7a128e70627f85ea09bfa0a03 [stream]
+[debug] [2024-07-04T11:50:29.239Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/678c7a18b91308864683304889e253c12f334d427a29139644616cc80d977fa6 [none]
+[debug] [2024-07-04T11:50:29.240Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/678c7a18b91308864683304889e253c12f334d427a29139644616cc80d977fa6 [stream]
+[debug] [2024-07-04T11:50:29.242Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/4802d7ba8da2bdb8307cc083aca30153a362f1c7ddc626e6e10cf40a689fdac0 [none]
+[debug] [2024-07-04T11:50:29.242Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/4802d7ba8da2bdb8307cc083aca30153a362f1c7ddc626e6e10cf40a689fdac0 [stream]
+[debug] [2024-07-04T11:50:29.244Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/2659582a434b56c339ccf6255dcaf9397b5cbd74d51d4a38c108b4f97728dd0e [none]
+[debug] [2024-07-04T11:50:29.245Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/2659582a434b56c339ccf6255dcaf9397b5cbd74d51d4a38c108b4f97728dd0e [stream]
+[debug] [2024-07-04T11:50:29.246Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/4b818efd1be0d571c2231d4b7cdc12fbaaefbce7a987458a6618afeaee1446d9 [none]
+[debug] [2024-07-04T11:50:29.247Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/4b818efd1be0d571c2231d4b7cdc12fbaaefbce7a987458a6618afeaee1446d9 [stream]
+[debug] [2024-07-04T11:50:29.248Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/4ef0d9dda3fea56539ed5bfa1cbe33d2dfceba25a3dbf6e377a49ec8f28b3e0e [none]
+[debug] [2024-07-04T11:50:29.248Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/4ef0d9dda3fea56539ed5bfa1cbe33d2dfceba25a3dbf6e377a49ec8f28b3e0e [stream]
+[debug] [2024-07-04T11:50:29.250Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/ca68d701b52bc2eafca06307ad11ef9bfac287fe0689a28d22a9be67cab3b0de [none]
+[debug] [2024-07-04T11:50:29.250Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/ca68d701b52bc2eafca06307ad11ef9bfac287fe0689a28d22a9be67cab3b0de [stream]
+[debug] [2024-07-04T11:50:29.252Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/97caceda9c17a87025a6839afa1abf849e28d149957a0949e06b04c640df1968 [none]
+[debug] [2024-07-04T11:50:29.252Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/97caceda9c17a87025a6839afa1abf849e28d149957a0949e06b04c640df1968 [stream]
+[debug] [2024-07-04T11:50:29.254Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/d14b0de190d11a260ead824a6e8392a28a65032019ac6cd933c5fd541fa5a0ce [none]
+[debug] [2024-07-04T11:50:29.254Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/d14b0de190d11a260ead824a6e8392a28a65032019ac6cd933c5fd541fa5a0ce [stream]
+[debug] [2024-07-04T11:50:29.255Z] [hosting][populate queue][FINAL] {"max":653,"min":653,"avg":653,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":674}
+[debug] [2024-07-04T11:50:29.256Z] [hosting] uploads queued: 11
+[info] i  hosting: uploading new files [0/11] (0%) 
+[debug] [2024-07-04T11:50:30.972Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/678c7a18b91308864683304889e253c12f334d427a29139644616cc80d977fa6 200
+[debug] [2024-07-04T11:50:30.973Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/678c7a18b91308864683304889e253c12f334d427a29139644616cc80d977fa6 [stream]
+[debug] [2024-07-04T11:50:31.043Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/f3d7759d022d784a772f0de7e6775029bb620698d8eb0bb7e3a8c57a4cbec410 200
+[debug] [2024-07-04T11:50:31.045Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/f3d7759d022d784a772f0de7e6775029bb620698d8eb0bb7e3a8c57a4cbec410 [stream]
+[debug] [2024-07-04T11:50:31.260Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/ca68d701b52bc2eafca06307ad11ef9bfac287fe0689a28d22a9be67cab3b0de 200
+[debug] [2024-07-04T11:50:31.261Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/ca68d701b52bc2eafca06307ad11ef9bfac287fe0689a28d22a9be67cab3b0de [stream]
+[debug] [2024-07-04T11:50:31.322Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/fab0832c8f067246657564475277ae5d7f0ff32ea1cfad01162f50e264ed5419 200
+[debug] [2024-07-04T11:50:31.323Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/fab0832c8f067246657564475277ae5d7f0ff32ea1cfad01162f50e264ed5419 [stream]
+[debug] [2024-07-04T11:50:31.329Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/d14b0de190d11a260ead824a6e8392a28a65032019ac6cd933c5fd541fa5a0ce 200
+[debug] [2024-07-04T11:50:31.330Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/d14b0de190d11a260ead824a6e8392a28a65032019ac6cd933c5fd541fa5a0ce [stream]
+[debug] [2024-07-04T11:50:31.367Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/97caceda9c17a87025a6839afa1abf849e28d149957a0949e06b04c640df1968 200
+[debug] [2024-07-04T11:50:31.368Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/97caceda9c17a87025a6839afa1abf849e28d149957a0949e06b04c640df1968 [stream]
+[debug] [2024-07-04T11:50:31.559Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/2659582a434b56c339ccf6255dcaf9397b5cbd74d51d4a38c108b4f97728dd0e 200
+[debug] [2024-07-04T11:50:31.560Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/2659582a434b56c339ccf6255dcaf9397b5cbd74d51d4a38c108b4f97728dd0e [stream]
+[debug] [2024-07-04T11:50:31.591Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/b32e8ef2aa770fb4412ef9223ef3ddd2478b19e7a128e70627f85ea09bfa0a03 200
+[debug] [2024-07-04T11:50:31.592Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/b32e8ef2aa770fb4412ef9223ef3ddd2478b19e7a128e70627f85ea09bfa0a03 [stream]
+[debug] [2024-07-04T11:50:31.598Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/4b818efd1be0d571c2231d4b7cdc12fbaaefbce7a987458a6618afeaee1446d9 200
+[debug] [2024-07-04T11:50:31.598Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/4b818efd1be0d571c2231d4b7cdc12fbaaefbce7a987458a6618afeaee1446d9 [stream]
+[debug] [2024-07-04T11:50:31.611Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/4802d7ba8da2bdb8307cc083aca30153a362f1c7ddc626e6e10cf40a689fdac0 200
+[debug] [2024-07-04T11:50:31.612Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/4802d7ba8da2bdb8307cc083aca30153a362f1c7ddc626e6e10cf40a689fdac0 [stream]
+[debug] [2024-07-04T11:50:31.714Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/4ef0d9dda3fea56539ed5bfa1cbe33d2dfceba25a3dbf6e377a49ec8f28b3e0e 200
+[debug] [2024-07-04T11:50:31.715Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef165a7dc54caefd/files/4ef0d9dda3fea56539ed5bfa1cbe33d2dfceba25a3dbf6e377a49ec8f28b3e0e [stream]
+[debug] [2024-07-04T11:50:31.715Z] [hosting][upload queue][FINAL] {"max":2482,"min":1740,"avg":2165.090909090909,"active":0,"complete":11,"success":11,"errored":0,"retried":0,"total":11,"elapsed":2483}
+[info] i  hosting: upload complete 
+[info] +  hosting[clinica-efd25]: file upload complete 
+[debug] [2024-07-04T11:50:31.716Z] [hosting] deploy completed after 3211ms
+[debug] [2024-07-04T11:50:31.717Z] [
+  {
+    "config": {
+      "public": "y",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "clinica-efd25"
+    },
+    "version": "projects/445632815623/sites/clinica-efd25/versions/ef165a7dc54caefd"
+  }
+]
+[info] i  hosting[clinica-efd25]: finalizing version... 
+[debug] [2024-07-04T11:50:31.720Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/ef165a7dc54caefd updateMask=status%2Cconfig
+[debug] [2024-07-04T11:50:31.721Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/ef165a7dc54caefd {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2024-07-04T11:50:32.419Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/ef165a7dc54caefd 200
+[debug] [2024-07-04T11:50:32.420Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/ef165a7dc54caefd {"name":"projects/445632815623/sites/clinica-efd25/versions/ef165a7dc54caefd","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2024-07-04T11:50:25.982493Z","createUser":{"email":"abriluberti11@gmail.com"},"finalizeTime":"2024-07-04T11:50:30.665202Z","finalizeUser":{"email":"abriluberti11@gmail.com"}}
+[debug] [2024-07-04T11:50:32.421Z] [hosting] finalized version for clinica-efd25:[object Object]
+[info] +  hosting[clinica-efd25]: version finalized 
+[info] i  hosting[clinica-efd25]: releasing new version... 
+[debug] [2024-07-04T11:50:32.423Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases versionName=projects%2F445632815623%2Fsites%2Fclinica-efd25%2Fversions%2Fef165a7dc54caefd
+[debug] [2024-07-04T11:50:32.424Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases {}
+[debug] [2024-07-04T11:50:32.812Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases 200
+[debug] [2024-07-11T00:58:18.384Z] ----------------------------------------------------------------------
+[debug] [2024-07-11T00:58:18.386Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\user\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --debug
+[debug] [2024-07-11T00:58:18.387Z] CLI Version:   13.10.0
+[debug] [2024-07-11T00:58:18.387Z] Platform:      win32
+[debug] [2024-07-11T00:58:18.387Z] Node Version:  v20.12.2
+[debug] [2024-07-11T00:58:18.387Z] Time:          Wed Jul 10 2024 21:58:18 GMT-0300 (hora estándar de Argentina)
+[debug] [2024-07-11T00:58:18.387Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-07-11T00:58:18.391Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-07-11T00:58:18.522Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-11T00:58:18.523Z] > authorizing via signed-in user (abriluberti11@gmail.com)
+[debug] [2024-07-11T00:58:18.523Z] [iam] checking project clinica-efd25 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-07-11T00:58:18.525Z] > refreshing access token with scopes: []
+[debug] [2024-07-11T00:58:18.526Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-07-11T00:58:18.526Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-07-11T00:58:18.704Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-07-11T00:58:18.704Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-07-11T00:58:18.712Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions [none]
+[debug] [2024-07-11T00:58:18.712Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions x-goog-quota-user=projects/clinica-efd25
+[debug] [2024-07-11T00:58:18.713Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-07-11T00:58:18.980Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-07-11T00:58:18.981Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-07-11T00:58:19.682Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions 200
+[debug] [2024-07-11T00:58:19.682Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-07-11T00:58:19.683Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/clinica-efd25 [none]
+[debug] [2024-07-11T00:58:20.150Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/clinica-efd25 200
+[debug] [2024-07-11T00:58:20.150Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/clinica-efd25 {"projectId":"clinica-efd25","projectNumber":"445632815623","displayName":"clinica","name":"projects/clinica-efd25","resources":{"hostingSite":"clinica-efd25","storageBucket":"clinica-efd25.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_a018ee91-d38c-4457-a75c-36c8705e5c15"}
+[info] 
+[info] === Deploying to 'clinica-efd25'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2024-07-11T00:58:20.154Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions [none]
+[debug] [2024-07-11T00:58:20.155Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2024-07-11T00:58:21.562Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions 200
+[debug] [2024-07-11T00:58:21.562Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions {"name":"projects/445632815623/sites/clinica-efd25/versions/ef32ecf9654641c1","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[clinica-efd25]: beginning deploy... 
+[info] i  hosting[clinica-efd25]: found 29 files in y 
+[debug] [2024-07-11T00:58:21.574Z] [hosting] uploading with 200 concurrency
+[debug] [2024-07-11T00:58:21.639Z] [hosting] hash cache [eQ] stored for 29 files
+[debug] [2024-07-11T00:58:21.640Z] [hosting][hash queue][FINAL] {"max":56,"min":0,"avg":6.103448275862069,"active":0,"complete":29,"success":29,"errored":0,"retried":0,"total":29,"elapsed":61}
+[debug] [2024-07-11T00:58:21.641Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/ef32ecf9654641c1:populateFiles [none]
+[debug] [2024-07-11T00:58:21.642Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/ef32ecf9654641c1:populateFiles {"files":{"/favicon.ico":"aa414b3c791f02cf3de4321232eb32c5270cb3181aaa4c2ffc39137217fa2d0d","/assets/administrador.png":"d82972ab1df2b62d43b8e6eb895e13e28afcb3e8b155f01ed20c7691c1db7a2d","/assets/clinic.png":"4762b57e6e0ee0208ef5c347cdca916ee0db413894a004832264d36f288ab9fe","/assets/Dentista.png":"1e17c7ed1ad6471b47d76b971bc79160a18a078c1247262fa1a8a0172d5daf25","/assets/especialista.gif":"e2ab3247afa4ecc005d46eec4fd67487911183fff108aca93db9e7b00de4abee","/assets/Especialista.png":"0af25bd611fe1314d68b1e032c23f2f065ccdcff975480416549bd6d5d5394c1","/assets/fondi.jpeg":"69e80cca90322213fa648ad0bcda1faa00495248764c3f30e1bff00a81103b2f","/assets/fondo.jpeg":"a945a4cf4bae8e034ea5bb186a42c36ffdfc8a01d2ae0493a574f1ae1badb133","/assets/image.png":"4802d7ba8da2bdb8307cc083aca30153a362f1c7ddc626e6e10cf40a689fdac0","/assets/onli.jpeg":"7d035145cd15e8c52a60fa8686132e0d18a15ab40505ecd8c41ce9b395a34a55","/assets/paciente.gif":"6ca933354785d48aa7a6edb480df908fac1627bb1f93daa87803684f563ee930","/assets/PacienteDos.png":"e1ed926d5706c4f5bf04a60c58e0af4fe59e8838212166bab046c7aecb08ced8","/assets/PacienteTres.png":"543f958ac7751fe2582b384dc1464711ec246234c44054de9b36f1100ec9026e","/assets/PacienteUno.png":"2a781ed088466ebe568072d738cb1fb4332129cf8859041d8e9cbcfd578dba95","/assets/especialidades/Cardiología.png":"a1f90f0b118db26f547ad8e2f21d781ed476a2fc030de162d7b756e88603bc6d","/assets/especialidades/dentista.png":"c0f05584da213b4a2c9fade2a8df8705f68dba9b37b9831cab3deaf18779ad7e","/assets/especialidades/Pediatra.png":"6e454284f8900b1aa369e922725908fd643df426078fa3d1712f15e3294e1181","/chunk-B24A6PXI.js":"f3d7759d022d784a772f0de7e6775029bb620698d8eb0bb7e3a8c57a4cbec410","/chunk-ELJ22P57.js":"97caceda9c17a87025a6839afa1abf849e28d149957a0949e06b04c640df1968","/chunk-FK6H3RFT.js":"fab0832c8f067246657564475277ae5d7f0ff32ea1cfad01162f50e264ed5419","/chunk-AFEX6KIG.js":"ca68d701b52bc2eafca06307ad11ef9bfac287fe0689a28d22a9be67cab3b0de","/chunk-4D3F3NA6.js":"4ef0d9dda3fea56539ed5bfa1cbe33d2dfceba25a3dbf6e377a49ec8f28b3e0e","/styles-O4ZRP6GB.css":"2abbf8708ef72905ad6262174573d61335a6e7255283591469a13056f0e29785","/index.html":"b32e8ef2aa770fb4412ef9223ef3ddd2478b19e7a128e70627f85ea09bfa0a03","/polyfills-A7MJM4D4.js":"7756b8b41c82a0a87e6caf58b0a6230718270d00dbe0be49235c47528e7fd4a2","/chunk-DSML4SGR.js":"d14b0de190d11a260ead824a6e8392a28a65032019ac6cd933c5fd541fa5a0ce","/chunk-4C3AV5I2.js":"2659582a434b56c339ccf6255dcaf9397b5cbd74d51d4a38c108b4f97728dd0e","/chunk-LOCR433K.js":"678c7a18b91308864683304889e253c12f334d427a29139644616cc80d977fa6","/main-CMKH3YJK.js":"4b818efd1be0d571c2231d4b7cdc12fbaaefbce7a987458a6618afeaee1446d9"}}
+[debug] [2024-07-11T00:58:21.926Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/ef32ecf9654641c1:populateFiles 200
+[debug] [2024-07-11T00:58:21.926Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/ef32ecf9654641c1:populateFiles {"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/ef32ecf9654641c1/files"}
+[debug] [2024-07-11T00:58:21.927Z] [hosting][populate queue][FINAL] {"max":289,"min":289,"avg":289,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":289}
+[debug] [2024-07-11T00:58:21.927Z] [hosting] uploads queued: 0
+[debug] [2024-07-11T00:58:21.927Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":0,"success":0,"errored":0,"retried":0,"total":0,"elapsed":1720659501927}
+[info] i  hosting: upload complete 
+[info] +  hosting[clinica-efd25]: file upload complete 
+[debug] [2024-07-11T00:58:21.928Z] [hosting] deploy completed after 364ms
+[debug] [2024-07-11T00:58:21.928Z] [
+  {
+    "config": {
+      "public": "y",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "clinica-efd25"
+    },
+    "version": "projects/445632815623/sites/clinica-efd25/versions/ef32ecf9654641c1"
+  }
+]
+[info] i  hosting[clinica-efd25]: finalizing version... 
+[debug] [2024-07-11T00:58:21.932Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/ef32ecf9654641c1 updateMask=status%2Cconfig
+[debug] [2024-07-11T00:58:21.932Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/ef32ecf9654641c1 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2024-07-11T00:58:22.175Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/ef32ecf9654641c1 200
+[debug] [2024-07-11T00:58:22.177Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/ef32ecf9654641c1 {"name":"projects/445632815623/sites/clinica-efd25/versions/ef32ecf9654641c1","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2024-07-11T00:58:21.088194Z","createUser":{"email":"abriluberti11@gmail.com"},"finalizeTime":"2024-07-11T00:58:22.024567Z","finalizeUser":{"email":"abriluberti11@gmail.com"}}
+[debug] [2024-07-11T00:58:22.179Z] [hosting] finalized version for clinica-efd25:[object Object]
+[info] +  hosting[clinica-efd25]: version finalized 
+[info] i  hosting[clinica-efd25]: releasing new version... 
+[debug] [2024-07-11T00:58:22.184Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases versionName=projects%2F445632815623%2Fsites%2Fclinica-efd25%2Fversions%2Fef32ecf9654641c1
+[debug] [2024-07-11T00:58:22.185Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases {}
+[debug] [2024-07-11T00:58:22.501Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases 200
+[debug] [2024-07-11T01:00:39.383Z] ----------------------------------------------------------------------
+[debug] [2024-07-11T01:00:39.386Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\user\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --debug
+[debug] [2024-07-11T01:00:39.386Z] CLI Version:   13.10.0
+[debug] [2024-07-11T01:00:39.386Z] Platform:      win32
+[debug] [2024-07-11T01:00:39.387Z] Node Version:  v20.12.2
+[debug] [2024-07-11T01:00:39.387Z] Time:          Wed Jul 10 2024 22:00:39 GMT-0300 (hora estándar de Argentina)
+[debug] [2024-07-11T01:00:39.387Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-07-11T01:00:39.466Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-11T01:00:39.472Z] > authorizing via signed-in user (abriluberti11@gmail.com)
+[debug] [2024-07-11T01:00:39.473Z] [iam] checking project clinica-efd25 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-07-11T01:00:39.476Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions [none]
+[debug] [2024-07-11T01:00:39.476Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions x-goog-quota-user=projects/clinica-efd25
+[debug] [2024-07-11T01:00:39.477Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-07-11T01:00:40.397Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions 200
+[debug] [2024-07-11T01:00:40.398Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clinica-efd25:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-07-11T01:00:40.399Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/clinica-efd25 [none]
+[debug] [2024-07-11T01:00:40.794Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/clinica-efd25 200
+[debug] [2024-07-11T01:00:40.795Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/clinica-efd25 {"projectId":"clinica-efd25","projectNumber":"445632815623","displayName":"clinica","name":"projects/clinica-efd25","resources":{"hostingSite":"clinica-efd25","storageBucket":"clinica-efd25.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_a018ee91-d38c-4457-a75c-36c8705e5c15"}
+[info] 
+[info] === Deploying to 'clinica-efd25'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2024-07-11T01:00:40.799Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions [none]
+[debug] [2024-07-11T01:00:40.799Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2024-07-11T01:00:42.092Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions 200
+[debug] [2024-07-11T01:00:42.092Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions {"name":"projects/445632815623/sites/clinica-efd25/versions/4e3403fc8e61fc58","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[clinica-efd25]: beginning deploy... 
+[info] i  hosting[clinica-efd25]: found 31 files in y 
+[debug] [2024-07-11T01:00:42.104Z] [hosting] uploading with 200 concurrency
+[debug] [2024-07-11T01:00:42.211Z] [hosting] hash cache [eQ] stored for 31 files
+[debug] [2024-07-11T01:00:42.212Z] [hosting][hash queue][FINAL] {"max":99,"min":0,"avg":8.806451612903226,"active":0,"complete":31,"success":31,"errored":0,"retried":0,"total":31,"elapsed":105}
+[debug] [2024-07-11T01:00:42.213Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/4e3403fc8e61fc58:populateFiles [none]
+[debug] [2024-07-11T01:00:42.214Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/4e3403fc8e61fc58:populateFiles {"files":{"/favicon.ico":"aa414b3c791f02cf3de4321232eb32c5270cb3181aaa4c2ffc39137217fa2d0d","/assets/administrador.png":"d82972ab1df2b62d43b8e6eb895e13e28afcb3e8b155f01ed20c7691c1db7a2d","/assets/clinic.png":"4762b57e6e0ee0208ef5c347cdca916ee0db413894a004832264d36f288ab9fe","/assets/Dentista.png":"1e17c7ed1ad6471b47d76b971bc79160a18a078c1247262fa1a8a0172d5daf25","/assets/especialista.gif":"e2ab3247afa4ecc005d46eec4fd67487911183fff108aca93db9e7b00de4abee","/assets/Especialista.png":"0af25bd611fe1314d68b1e032c23f2f065ccdcff975480416549bd6d5d5394c1","/assets/fondi.jpeg":"69e80cca90322213fa648ad0bcda1faa00495248764c3f30e1bff00a81103b2f","/assets/fondo.jpeg":"a945a4cf4bae8e034ea5bb186a42c36ffdfc8a01d2ae0493a574f1ae1badb133","/assets/image.png":"4802d7ba8da2bdb8307cc083aca30153a362f1c7ddc626e6e10cf40a689fdac0","/assets/onli.jpeg":"7d035145cd15e8c52a60fa8686132e0d18a15ab40505ecd8c41ce9b395a34a55","/assets/paciente.gif":"6ca933354785d48aa7a6edb480df908fac1627bb1f93daa87803684f563ee930","/assets/PacienteDos.png":"e1ed926d5706c4f5bf04a60c58e0af4fe59e8838212166bab046c7aecb08ced8","/assets/PacienteTres.png":"543f958ac7751fe2582b384dc1464711ec246234c44054de9b36f1100ec9026e","/assets/PacienteUno.png":"2a781ed088466ebe568072d738cb1fb4332129cf8859041d8e9cbcfd578dba95","/assets/especialidades/Cardiología.png":"a1f90f0b118db26f547ad8e2f21d781ed476a2fc030de162d7b756e88603bc6d","/assets/especialidades/dentista.png":"c0f05584da213b4a2c9fade2a8df8705f68dba9b37b9831cab3deaf18779ad7e","/assets/especialidades/Pediatra.png":"6e454284f8900b1aa369e922725908fd643df426078fa3d1712f15e3294e1181","/chunk-FK6H3RFT.js":"fab0832c8f067246657564475277ae5d7f0ff32ea1cfad01162f50e264ed5419","/chunk-DEPBX7UX.js":"aac3a4632b8d02e1cb313e5e21da1e6a9b5df1b7379785da04f08a15460384ea","/chunk-FXSLCCMI.js":"8b2177bc0ddbf6906250f397ba7b727b32c30551021f7d1abf9487a52bba94d0","/chunk-PUY2SWZH.js":"f8bef9bcab4532f62465fd10280b5b7724522b77e817d1e54c901f995dcf3c5d","/index.html":"589daaa29b779af2496dbab1a22cdca4eaabf01d099d554ba2ab5cc1ce6ba6ec","/chunk-6DCU2M7H.js":"61f312079951fdfcae60c44a8f5f181dde4ad183c3d6ae2b05404e57dd07bdc0","/styles-SAJTA5QH.css":"aca0a577fd06c18aff5b378c2a0e783815ff17d11d481d53110631c4bdafffa6","/polyfills-A7MJM4D4.js":"7756b8b41c82a0a87e6caf58b0a6230718270d00dbe0be49235c47528e7fd4a2","/assets/especialidades/default.png":"069ea94983dfa79456ee209174c860bef7829dc5581eb1c6b7126d5b7e3e51cd","/chunk-FHYYYV3M.js":"0c6d5595c5e6f5f94f51ba2eb1681d34d9ecad1dc3eb1f660f58899e0043832f","/assets/especialidades/neurologia.png":"bb35889fa486c8eca80a34839809b5122b8b0bfd424609656ef5390e30541632","/chunk-IIFZJDDA.js":"259452a95329305f7186ebcacd521ac0338dcfa2c483f6a3c06899a70b2fec25","/chunk-6FI5MUYZ.js":"448eba5d16e4d19e56a1f829724b0ee51b8ba2427c4a970598af4c74104d8ccd","/main-W6B776GB.js":"54de32ef8402a56839c0ceb8b4e8d103ecaf3a9b47f263c88c29184ae00bac60"}}
+[debug] [2024-07-11T01:00:42.536Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/4e3403fc8e61fc58:populateFiles 200
+[debug] [2024-07-11T01:00:42.536Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/445632815623/sites/clinica-efd25/versions/4e3403fc8e61fc58:populateFiles {"uploadRequiredHashes":["aac3a4632b8d02e1cb313e5e21da1e6a9b5df1b7379785da04f08a15460384ea","54de32ef8402a56839c0ceb8b4e8d103ecaf3a9b47f263c88c29184ae00bac60","0c6d5595c5e6f5f94f51ba2eb1681d34d9ecad1dc3eb1f660f58899e0043832f","259452a95329305f7186ebcacd521ac0338dcfa2c483f6a3c06899a70b2fec25","aca0a577fd06c18aff5b378c2a0e783815ff17d11d481d53110631c4bdafffa6","589daaa29b779af2496dbab1a22cdca4eaabf01d099d554ba2ab5cc1ce6ba6ec","069ea94983dfa79456ee209174c860bef7829dc5581eb1c6b7126d5b7e3e51cd","f8bef9bcab4532f62465fd10280b5b7724522b77e817d1e54c901f995dcf3c5d","8b2177bc0ddbf6906250f397ba7b727b32c30551021f7d1abf9487a52bba94d0","61f312079951fdfcae60c44a8f5f181dde4ad183c3d6ae2b05404e57dd07bdc0","448eba5d16e4d19e56a1f829724b0ee51b8ba2427c4a970598af4c74104d8ccd","bb35889fa486c8eca80a34839809b5122b8b0bfd424609656ef5390e30541632"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files"}
+[debug] [2024-07-11T01:00:42.540Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/aac3a4632b8d02e1cb313e5e21da1e6a9b5df1b7379785da04f08a15460384ea [none]
+[debug] [2024-07-11T01:00:42.540Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/aac3a4632b8d02e1cb313e5e21da1e6a9b5df1b7379785da04f08a15460384ea [stream]
+[debug] [2024-07-11T01:00:42.542Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/54de32ef8402a56839c0ceb8b4e8d103ecaf3a9b47f263c88c29184ae00bac60 [none]
+[debug] [2024-07-11T01:00:42.543Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/54de32ef8402a56839c0ceb8b4e8d103ecaf3a9b47f263c88c29184ae00bac60 [stream]
+[debug] [2024-07-11T01:00:42.544Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/0c6d5595c5e6f5f94f51ba2eb1681d34d9ecad1dc3eb1f660f58899e0043832f [none]
+[debug] [2024-07-11T01:00:42.545Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/0c6d5595c5e6f5f94f51ba2eb1681d34d9ecad1dc3eb1f660f58899e0043832f [stream]
+[debug] [2024-07-11T01:00:42.546Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/259452a95329305f7186ebcacd521ac0338dcfa2c483f6a3c06899a70b2fec25 [none]
+[debug] [2024-07-11T01:00:42.547Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/259452a95329305f7186ebcacd521ac0338dcfa2c483f6a3c06899a70b2fec25 [stream]
+[debug] [2024-07-11T01:00:42.548Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/aca0a577fd06c18aff5b378c2a0e783815ff17d11d481d53110631c4bdafffa6 [none]
+[debug] [2024-07-11T01:00:42.548Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/aca0a577fd06c18aff5b378c2a0e783815ff17d11d481d53110631c4bdafffa6 [stream]
+[debug] [2024-07-11T01:00:42.550Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/589daaa29b779af2496dbab1a22cdca4eaabf01d099d554ba2ab5cc1ce6ba6ec [none]
+[debug] [2024-07-11T01:00:42.550Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/589daaa29b779af2496dbab1a22cdca4eaabf01d099d554ba2ab5cc1ce6ba6ec [stream]
+[debug] [2024-07-11T01:00:42.552Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/069ea94983dfa79456ee209174c860bef7829dc5581eb1c6b7126d5b7e3e51cd [none]
+[debug] [2024-07-11T01:00:42.552Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/069ea94983dfa79456ee209174c860bef7829dc5581eb1c6b7126d5b7e3e51cd [stream]
+[debug] [2024-07-11T01:00:42.553Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/f8bef9bcab4532f62465fd10280b5b7724522b77e817d1e54c901f995dcf3c5d [none]
+[debug] [2024-07-11T01:00:42.554Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/f8bef9bcab4532f62465fd10280b5b7724522b77e817d1e54c901f995dcf3c5d [stream]
+[debug] [2024-07-11T01:00:42.556Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/8b2177bc0ddbf6906250f397ba7b727b32c30551021f7d1abf9487a52bba94d0 [none]
+[debug] [2024-07-11T01:00:42.557Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/8b2177bc0ddbf6906250f397ba7b727b32c30551021f7d1abf9487a52bba94d0 [stream]
+[debug] [2024-07-11T01:00:42.559Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/61f312079951fdfcae60c44a8f5f181dde4ad183c3d6ae2b05404e57dd07bdc0 [none]
+[debug] [2024-07-11T01:00:42.559Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/61f312079951fdfcae60c44a8f5f181dde4ad183c3d6ae2b05404e57dd07bdc0 [stream]
+[debug] [2024-07-11T01:00:42.561Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/448eba5d16e4d19e56a1f829724b0ee51b8ba2427c4a970598af4c74104d8ccd [none]
+[debug] [2024-07-11T01:00:42.562Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/448eba5d16e4d19e56a1f829724b0ee51b8ba2427c4a970598af4c74104d8ccd [stream]
+[debug] [2024-07-11T01:00:42.563Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/bb35889fa486c8eca80a34839809b5122b8b0bfd424609656ef5390e30541632 [none]
+[debug] [2024-07-11T01:00:42.564Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/bb35889fa486c8eca80a34839809b5122b8b0bfd424609656ef5390e30541632 [stream]
+[debug] [2024-07-11T01:00:42.566Z] [hosting][populate queue][FINAL] {"max":330,"min":330,"avg":330,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":356}
+[debug] [2024-07-11T01:00:42.566Z] [hosting] uploads queued: 12
+[debug] [2024-07-11T01:00:43.497Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/61f312079951fdfcae60c44a8f5f181dde4ad183c3d6ae2b05404e57dd07bdc0 200
+[debug] [2024-07-11T01:00:43.498Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/61f312079951fdfcae60c44a8f5f181dde4ad183c3d6ae2b05404e57dd07bdc0 [stream]
+[debug] [2024-07-11T01:00:43.535Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/259452a95329305f7186ebcacd521ac0338dcfa2c483f6a3c06899a70b2fec25 200
+[debug] [2024-07-11T01:00:43.536Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/259452a95329305f7186ebcacd521ac0338dcfa2c483f6a3c06899a70b2fec25 [stream]
+[debug] [2024-07-11T01:00:43.539Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/aac3a4632b8d02e1cb313e5e21da1e6a9b5df1b7379785da04f08a15460384ea 200
+[debug] [2024-07-11T01:00:43.540Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/aac3a4632b8d02e1cb313e5e21da1e6a9b5df1b7379785da04f08a15460384ea [stream]
+[debug] [2024-07-11T01:00:43.672Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/aca0a577fd06c18aff5b378c2a0e783815ff17d11d481d53110631c4bdafffa6 200
+[debug] [2024-07-11T01:00:43.673Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/aca0a577fd06c18aff5b378c2a0e783815ff17d11d481d53110631c4bdafffa6 [stream]
+[debug] [2024-07-11T01:00:43.902Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/448eba5d16e4d19e56a1f829724b0ee51b8ba2427c4a970598af4c74104d8ccd 200
+[debug] [2024-07-11T01:00:43.903Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/448eba5d16e4d19e56a1f829724b0ee51b8ba2427c4a970598af4c74104d8ccd [stream]
+[debug] [2024-07-11T01:00:44.001Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/f8bef9bcab4532f62465fd10280b5b7724522b77e817d1e54c901f995dcf3c5d 200
+[debug] [2024-07-11T01:00:44.002Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/f8bef9bcab4532f62465fd10280b5b7724522b77e817d1e54c901f995dcf3c5d [stream]
+[debug] [2024-07-11T01:00:44.003Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/069ea94983dfa79456ee209174c860bef7829dc5581eb1c6b7126d5b7e3e51cd 200
+[debug] [2024-07-11T01:00:44.004Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/069ea94983dfa79456ee209174c860bef7829dc5581eb1c6b7126d5b7e3e51cd [stream]
+[info] i  hosting: uploading new files [7/12] (58%) 
+[debug] [2024-07-11T01:00:44.148Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/8b2177bc0ddbf6906250f397ba7b727b32c30551021f7d1abf9487a52bba94d0 200
+[debug] [2024-07-11T01:00:44.149Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/8b2177bc0ddbf6906250f397ba7b727b32c30551021f7d1abf9487a52bba94d0 [stream]
+[debug] [2024-07-11T01:00:44.183Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/589daaa29b779af2496dbab1a22cdca4eaabf01d099d554ba2ab5cc1ce6ba6ec 200
+[debug] [2024-07-11T01:00:44.183Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/589daaa29b779af2496dbab1a22cdca4eaabf01d099d554ba2ab5cc1ce6ba6ec [stream]
+[debug] [2024-07-11T01:00:44.239Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/bb35889fa486c8eca80a34839809b5122b8b0bfd424609656ef5390e30541632 200
+[debug] [2024-07-11T01:00:44.239Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/bb35889fa486c8eca80a34839809b5122b8b0bfd424609656ef5390e30541632 [stream]
+[debug] [2024-07-11T01:00:44.432Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/54de32ef8402a56839c0ceb8b4e8d103ecaf3a9b47f263c88c29184ae00bac60 200
+[debug] [2024-07-11T01:00:44.433Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/54de32ef8402a56839c0ceb8b4e8d103ecaf3a9b47f263c88c29184ae00bac60 [stream]
+[debug] [2024-07-11T01:00:44.761Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/0c6d5595c5e6f5f94f51ba2eb1681d34d9ecad1dc3eb1f660f58899e0043832f 200
+[debug] [2024-07-11T01:00:44.762Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/clinica-efd25/versions/4e3403fc8e61fc58/files/0c6d5595c5e6f5f94f51ba2eb1681d34d9ecad1dc3eb1f660f58899e0043832f [stream]
+[debug] [2024-07-11T01:00:44.762Z] [hosting][upload queue][FINAL] {"max":2223,"min":961,"avg":1455.1666666666667,"active":0,"complete":12,"success":12,"errored":0,"retried":0,"total":12,"elapsed":2224}
+[info] i  hosting: upload complete 
+[info] +  hosting[clinica-efd25]: file upload complete 
+[debug] [2024-07-11T01:00:44.764Z] [hosting] deploy completed after 2670ms
+[debug] [2024-07-11T01:00:44.764Z] [
+  {
+    "config": {
+      "public": "y",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "clinica-efd25"
+    },
+    "version": "projects/445632815623/sites/clinica-efd25/versions/4e3403fc8e61fc58"
+  }
+]
+[info] i  hosting[clinica-efd25]: finalizing version... 
+[debug] [2024-07-11T01:00:44.768Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/4e3403fc8e61fc58 updateMask=status%2Cconfig
+[debug] [2024-07-11T01:00:44.768Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/4e3403fc8e61fc58 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2024-07-11T01:00:44.998Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/4e3403fc8e61fc58 200
+[debug] [2024-07-11T01:00:44.999Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/versions/4e3403fc8e61fc58 {"name":"projects/445632815623/sites/clinica-efd25/versions/4e3403fc8e61fc58","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2024-07-11T01:00:41.653317Z","createUser":{"email":"abriluberti11@gmail.com"},"finalizeTime":"2024-07-11T01:00:44.841351Z","finalizeUser":{"email":"abriluberti11@gmail.com"}}
+[debug] [2024-07-11T01:00:45.002Z] [hosting] finalized version for clinica-efd25:[object Object]
+[info] +  hosting[clinica-efd25]: version finalized 
+[info] i  hosting[clinica-efd25]: releasing new version... 
+[debug] [2024-07-11T01:00:45.006Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases versionName=projects%2F445632815623%2Fsites%2Fclinica-efd25%2Fversions%2F4e3403fc8e61fc58
+[debug] [2024-07-11T01:00:45.007Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases {}
+[debug] [2024-07-11T01:00:45.379Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/clinica-efd25/channels/live/releases 200

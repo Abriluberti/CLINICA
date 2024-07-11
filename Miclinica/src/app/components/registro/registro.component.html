@@ -1,42 +1,57 @@
-
-  <body>
-    <img src="assets/paciente.gif" alt="GIF de paciente" class="img-paciente" >
-    <div class="container">
-      <h2>Registro de Pacientes</h2>
+<body>
+  <div class="container">
+    <h2>Registro de Pacientes</h2>
+    <div class="form-wrapper">
       <form (submit)="registerPatient($event)">
-        <input type="text" [(ngModel)]="paciente.nombre" name="nombre" placeholder="Nombre" required>
-        <input type="text" [(ngModel)]="paciente.apellido" name="apellido" placeholder="Apellido" required>
-        <input type="number" [(ngModel)]="paciente.edad" name="edad" placeholder="Edad" required min="0">
-        <input type="number" [(ngModel)]="paciente.dni" name="dni" placeholder="DNI" required>
-        <input type="text" [(ngModel)]="paciente.obraSocial" name="obraSocial" placeholder="Obra Social" required>
-        <input type="email" [(ngModel)]="paciente.email" name="email" placeholder="Mail" required>
-        <input type="password" [(ngModel)]="paciente.password" name="password" placeholder="Password" required>
-        <input type="file" (change)="onFileSelected($event, 'paciente')" required multiple>
+        <div>
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" [(ngModel)]="paciente.nombre" name="nombre" placeholder="Nombre" required>
+        </div>
+        <div>
+          <label for="apellido">Apellido:</label>
+          <input type="text" id="apellido" [(ngModel)]="paciente.apellido" name="apellido" placeholder="Apellido" required>
+        </div>
+        <div>
+          <label for="edad">Edad:</label>
+          <input type="number" id="edad" [(ngModel)]="paciente.edad" name="edad" placeholder="Edad" required min="0">
+        </div>
+        <div>
+          <label for="dni">DNI:</label>
+          <input type="number" id="dni" [(ngModel)]="paciente.dni" name="dni" placeholder="DNI" required>
+        </div>
+        <div>
+          <label for="obraSocial">Obra Social:</label>
+          <input type="text" id="obraSocial" [(ngModel)]="paciente.obraSocial" name="obraSocial" placeholder="Obra Social" required>
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" [(ngModel)]="paciente.email" name="email" placeholder="Mail" required>
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" [(ngModel)]="paciente.password" name="password" placeholder="Password" required>
+        </div>
+        <div>
+          <label for="perfil1">Seleccionar primera imagen:</label>
+          <input type="file" id="perfil1" (change)="onFileSelected($event, 1)" required>
+        </div>
+        <div>
+          <label for="perfil2">Seleccionar segunda imagen:</label>
+          <input type="file" id="perfil2" (change)="onFileSelected($event, 2)" required>
+        </div>
+
+        <re-captcha 
+          (resolved)="onCaptchaResolved($any($event))" 
+          siteKey="6Le4NAwqAAAAAIKdO4bvbwqBRzDmd6ksbKZhNFIX"
+          required>
+        </re-captcha>
+        
+        <div *ngIf="captchaError" class="error-message">Debe completar el Captcha correctamente.</div>
         <input type="submit" value="Registrar">
       </form>
-      <div *ngIf="loading$ | async" class="loading-overlay">
-        <div class="spinner"></div>
-      </div>
     </div>
-   
-    <div class="container">
-      <h2>Registro de Especialistas</h2>
-      <form (submit)="registerEspecialista($event)">
-        <input type="text" [(ngModel)]="especialista.nombre" name="nombre" placeholder="Nombre" required>
-        <input type="text" [(ngModel)]="especialista.apellido" name="apellido" placeholder="Apellido" required>
-        <input type="number" [(ngModel)]="especialista.edad" name="edad" placeholder="Edad" required min="0">
-        <input type="number" [(ngModel)]="especialista.dni" name="dni" placeholder="DNI" required>
-        <input type="text" [(ngModel)]="especialista.especialidad" name="especialidad" placeholder="Especialidad" required>
-        <input type="email" [(ngModel)]="especialista.email" name="email" placeholder="Mail" required>
-        <input type="password" [(ngModel)]="especialista.password" name="password" placeholder="Password" required>
-        <input type="file" (change)="onFileSelected($event, 'especialista')" required>
-        <input type="submit" value="Registrar">
-      </form>
-      
-      <div *ngIf="loading$ | async" class="loading-overlay">
-        <div class="spinner"></div>
-      </div>
+    <div *ngIf="loading$ | async" class="loading-overlay">
+      <div class="spinner"></div>
     </div>
-    <img src="assets/especialista.gif" alt="GIF de especialista" class="img-especialista" >
-  </body>
-  
+  </div>
+</body>

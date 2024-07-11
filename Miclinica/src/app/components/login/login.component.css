@@ -1,5 +1,3 @@
-/* styles.css */
-
 /* Estilos generales */
 html, body {
   font-family: Arial, sans-serif;
@@ -9,8 +7,6 @@ html, body {
   align-items: center;
   background-attachment: fixed;
   overflow-y: hidden;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   margin: 0;
   /* Añade una animación de gradiente */
@@ -28,33 +24,48 @@ html, body {
   }
 }
 
-/* Estilos del contenedor de inicio de sesión */
+/* Contenedor principal */
 .login-container {
-  background-color: #ede7e4;
-  padding: 40px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto; /* Centra horizontalmente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 100vh;
 }
 
-/* Estilos del título */
-h2 {
+/* Formulario de inicio de sesión */
+.login-form {
+  width: 90%; /* Ocupa el 70% del ancho del contenedor principal */
+  padding: 110px;
+  background-color: #ede7e4; /* Fondo blanco */
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del formulario */
+.p {
   color: #333333;
   margin-bottom: 20px;
   text-align: center;
 }
+/* styles.css o styles.scss */
 
-/* Estilos de las etiquetas */
+body {
+  background-color: #ffffff; /* Color de fondo predeterminado */
+}
+
+body.random-background {
+  background-color: #f0f0f0; /* Color de fondo aleatorio */
+}
+
+/* Etiquetas del formulario */
 label {
   color: #0a0a0a;
   display: block;
   margin-bottom: 5px;
 }
 
-/* Estilos de los campos de entrada */
+/* Campos de entrada del formulario */
 input[type="email"],
 input[type="password"] {
   width: 100%;
@@ -62,9 +73,10 @@ input[type="password"] {
   border: 1px solid #dddddd;
   border-radius: 4px;
   margin-bottom: 15px;
+  box-sizing: border-box; /* Incluir el borde y el relleno en el ancho */
 }
 
-/* Estilos del botón de inicio de sesión */
+/* Botón de inicio de sesión */
 button[type="submit"] {
   width: 100%;
   padding: 10px;
@@ -80,7 +92,7 @@ button[type="submit"]:hover {
   background-color: #003d82;
 }
 
-/* Estilos del mensaje de error */
+/* Mensaje de error */
 .error-message {
   color: red;
   font-size: 14px;
@@ -88,53 +100,88 @@ button[type="submit"]:hover {
   text-align: center;
 }
 
-/* Estilos de la superposición de carga */
 .loading-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 1000; /* Asegura que esté por encima de todo */
 }
 
-/* Estilos del spinner de carga */
 .spinner {
-  border: 16px solid #f3f3f3; /* Gris claro */
-  border-top: 16px solid #3498db; /* Azul */
+  border: 4px solid rgba(190, 24, 24, 0.3); /* Borde del spinner */
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 1s linear infinite;
+  border-top: 4px solid #ffffff; /* Borde superior blanco */
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite; /* Animación de rotación */
+  background: linear-gradient(45deg, #ff0000, #5755e9); /* Fondo degradado */
 }
 
-/* Estilos de los botones de acceso rápido */
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* Contenedor de acceso rápido a la izquierda */
+.quick-access-container {
+  width: 90%; /* Ancho del contenedor */
+  padding: 35px;
+  background-color: #225186; /* Fondo gris claro */
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* Título del acceso rápido */
+.quick-access-container h3 {
+  color: #333333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Botones de acceso rápido */
 .quick-access-buttons {
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 20px;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  border-radius: 0; /* Elimina el borde redondeado */
 }
 
-.quick-access-buttons button {
-  padding: 10px;
-  background-color: #4CAF50; /* Verde */
-  color: white;
+.quick-access-button {
+  width: 60px;
+  height: 60px;
+  background: none;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border-radius: 0; /* Elimina el borde redondeado */
+  transition: background-color 0.3s ease;
 }
 
-.quick-access-buttons button:hover {
-  background-color: #45a049; /* Verde más oscuro */
+.quick-access-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* Agrega burbujas flotantes */
-/* Agrega burbujas flotantes */
-.login-container::before {
+.quick-access-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Burbujas flotantes */
+.quick-access-container::before {
   content: "";
   position: absolute;
   width: 20px;
@@ -142,17 +189,17 @@ button[type="submit"]:hover {
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   animation: floatBubble 5s infinite alternate;
-
-  top: 20%;
-  left: 10%;
+  pointer-events: none; /* Evita que las burbujas flotantes sean clicables */
 }
 
 @keyframes floatBubble {
-  12% {
+  0% {
     transform: translateY(0);
   }
-  100% {
+  50% {
     transform: translateY(-20px);
   }
+  100% {
+    transform: translateY(0);
+  }
 }
-

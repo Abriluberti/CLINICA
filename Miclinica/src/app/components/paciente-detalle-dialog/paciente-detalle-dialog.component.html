@@ -1,0 +1,39 @@
+<div *ngIf="pacienteSeleccionado">
+  <div class="detalle-paciente-container">
+    <div class="close-btn-container">
+      <button class="close-btn" (click)="cerrarDetalle()">X</button>
+    </div>
+    <div class="detalle-paciente-content">
+      <h2>Detalles del Paciente</h2>
+      <div>
+        <!-- Mostrar información general del paciente -->
+        <p><strong> {{ pacienteSeleccionado.especialistaNombre }} {{ pacienteSeleccionado.fecha }}</strong></p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Altura</th>
+              <th>Peso</th>
+              <th>Presión</th>
+              <th>Temperatura</th>
+              <th *ngFor="let dato of pacienteSeleccionado.historiaClinica?.datosDinamicos">{{ dato.clave }}</th>
+              <th>Reseña</th>
+              <th>Especialidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Iterar sobre cada turno del paciente -->
+            <tr *ngFor="let turno of pacienteSeleccionado.turnos">
+              <td>{{ turno.historiaClinica?.altura }}</td>
+              <td>{{ turno.historiaClinica?.peso }}</td>
+              <td>{{ turno.historiaClinica?.presion }}</td>
+              <td>{{ turno.historiaClinica?.temperatura }}</td>
+              <td *ngFor="let dato of pacienteSeleccionado.historiaClinica?.datosDinamicos">{{ dato.valor }}</td>
+              <td>{{ turno.resena }}</td>
+              <td>{{ turno.especialidadId }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

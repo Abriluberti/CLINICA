@@ -1,0 +1,14 @@
+<div class="container">
+  
+    <label for="inicio">Fecha de Inicio:</label>
+    <input type="date" id="inicio" [(ngModel)]="fechasSeleccionadas.inicio" (change)="onFechasSeleccionadasChange()">
+    
+    <label for="fin">Fecha de Fin:</label>
+    <input type="date" id="fin" [(ngModel)]="fechasSeleccionadas.fin" (change)="onFechasSeleccionadasChange()">
+    <button (click)="downloadPDF()">Descargar PDF</button>
+ 
+  
+  <canvas #chart></canvas>
+  
+  <button (click)="downloadPDF()">Descargar PDF</button>
+</div>

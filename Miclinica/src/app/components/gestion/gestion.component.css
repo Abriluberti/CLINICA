@@ -1,31 +1,58 @@
 /* Estilos de tabla */
+.table-container {
+  max-height: 400px; /* Ajusta la altura máxima del contenedor según tus necesidades */
+  overflow-y: auto; /* Agrega scroll vertical si el contenido supera la altura máxima */
+}
+
 table {
-    width: 100%;
-    border-collapse: collapse;
-    /* Agrega otros estilos según tus preferencias */
-  }
-  
-  /* Estilos de celda */
-  td, th {
-    padding: 10px;
-    border: 1px solid #ddd;
-    /* Personaliza los colores y otros estilos */
-  }
-  
-  /* Fuentes y tamaños de texto */
-  table {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-  }
-  
-  /* Espaciado y alineación */
-  td, th {
-    text-align: left;
-  }
-  
-  /* Colores y temas */
-  /* Define tus colores personalizados aquí */
-  
-  /* Ejemplo de color de fondo alternado para filas */
- 
-  
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+/* Estilos de celda */
+td, th {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Estilos de filas */
+tbody tr:nth-child(odd) {
+  background-color: #d2edf1;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.fav-button {
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.fav-button:hover {
+  background-color: #303f9f;
+}
+
+.mat-icon {
+  font-size: 24px;
+}

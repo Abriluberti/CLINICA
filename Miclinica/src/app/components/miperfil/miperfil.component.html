@@ -1,0 +1,92 @@
+<div class="container mt-3 mb-3">
+  <div *ngIf="!usuario">
+    <!-- Mostrar un spinner o mensaje de carga mientras se carga el usuario -->
+    <div class="text-center">
+      <div class="spinner-grow text-primary" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+      <p>Cargando...</p>
+    </div>
+  </div>
+
+  <div *ngIf="usuario">
+    <div *ngIf="coleccion === 'administradores'">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card">
+            <img class="card-img-top" [src]="usuario.imageUrl1 ? usuario.imageUrl1 : 'assets/administrador.png'" alt="Foto de perfil" height="300" />
+            <div class="card-body">
+              <h5 class="card-title">{{ usuario.nombre }} {{ usuario.apellido }}</h5>
+              <p class="card-text">DNI: {{ usuario.dni }}</p>
+              <p class="card-text">Edad: {{ usuario.edad }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="coleccion === 'pacientes'">
+      <div class="row">
+        <div class="col-lg-5 col-md-6 col-sm-12">
+          <div class="card">
+            <img class="card-img-top" [src]="usuario.imageUrl1" alt="Foto de perfil" height="300" />
+            <div class="card-body">
+              <h5 class="card-title">{{ usuario.nombre }} {{ usuario.apellido }}</h5>
+              <p class="card-text">DNI: {{ usuario.dni }}</p>
+              <p class="card-text">Edad: {{ usuario.edad }}</p>
+              <p class="card-text">Obra Social: {{ usuario.obraSocial }}</p>
+              <select class="form-select mt-3" [(ngModel)]="especialistaSeleccionado">
+                <option value="" disabled selected>Elegir especialista</option>
+                <!-- Iterar sobre los nombres únicos de especialistas -->
+                <option *ngFor="let especialista of especialistas" [value]="especialista">{{ especialista }}</option>
+              </select>
+              <!-- Botón para descargar historias clínicas por especialista -->
+              <button class="btn btn-primary mt-3" (click)="descargarHistoriasClinicas()">Descargar Historias Clínicas por Especialista</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div *ngIf="coleccion === 'especialistas'">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card">
+            <img class="card-img-top" [src]="usuario.imageUrl1" alt="Foto de perfil" height="300" />
+            <div class="card-body">
+              <h3 class="card-title">{{ usuario.nombre }} {{ usuario.apellido }}</h3>
+              <p class="card-text">DNI: {{ usuario.dni }}</p>
+              <p class="card-text">Edad: {{ usuario.edad }}</p>
+              <h4>Especialidades y horarios:</h4>
+              <div *ngFor="let especialidad of especialidades">
+                <h3>{{ especialidad }}</h3>
+                <div>
+                  <label>
+                    <input type="checkbox" (change)="actualizarHorario($event, especialidad, 'manana')" [checked]="horario[especialidad]?.manana"> Mañana
+                  </label>
+                  <label>
+                    <input type="checkbox" (change)="actualizarHorario($event, especialidad, 'tarde')" [checked]="horario[especialidad]?.tarde"> Tarde
+                  </label>
+                  <label>
+                    <input type="checkbox" (change)="actualizarHorario($event, especialidad, 'noche')" [checked]="horario[especialidad]?.noche"> Noche
+                  </label>
+                </div>
+              </div>
+              <button (click)="guardar()">Guardar Horarios</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="coleccion === 'pacientes' && filtrar" class="col-sm-10">
+    <div class="row">
+      <div *ngFor="let especialista of especialistasT" class="col-sm-3 m-1">
+        <button class="btn btn-primary" type="button" (click)="filtrarEspecialistas(especialista.uid)">
+          <p>{{ especialista.nombre }}</p>
+          <img [src]="especialista.imageUrl1" width="100" height="100" alt="Imagen de {{ especialista.nombre }}" class="img-fluid especialidad-img" />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

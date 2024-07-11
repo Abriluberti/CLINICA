@@ -2,14 +2,18 @@ import { provideFirebaseApp, initializeApp, getApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
-
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { routes } from './app.routes';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDNLikYsZRPri9E24kHAdcwHDgdmDqql_s",
@@ -28,9 +32,17 @@ export const appConfig: ApplicationConfig = {
     provideFirestore(() => getFirestore(getApp())),
     provideStorage(() => getStorage(getApp())),
     CommonModule,
+    MatDialogModule,
     FormsModule,
+    
+    DatePipe,
+    BrowserAnimationsModule,
+    NgxChartsModule,
+    RecaptchaModule ,
+    BrowserModule,
+    HttpClient,
     ReactiveFormsModule,
-    HttpClientModule,
+    provideHttpClient(withInterceptorsFromDi()),
     {
       provide: FIREBASE_OPTIONS,
       useValue: firebaseConfig

@@ -1,41 +1,57 @@
 <h2>Gestión de Usuarios</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Email</th>
-      <th>Perfil</th>
- 
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let paciente of pacientes">
-      <td>{{ paciente.nombre }}</td>
-      <td>{{ paciente.apellido }}</td>
-      <td>{{ paciente.email }}</td>
-      <td>{{ paciente.perfil }}</td>
-      <td>
-      
-      </td>
-    </tr>
-    <tr *ngFor="let especialista of especialistas">
-      <td>{{ especialista.nombre }}</td>
-      <td>{{ especialista.apellido }}</td>
-      <td>{{ especialista.email }}</td>
-      <td>{{ especialista.perfil }}</td>
-      <td>
-        
-      </td>
-    </tr>
-    <tr *ngFor="let administrador of administradores">
-      <td>{{ administrador.nombre }}</td>
-      <td>{{ administrador.apellido }}</td>
-      <td>{{ administrador.email }}</td>
-      <td>{{ administrador.perfil }}</td>
-      <td>
-    
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Perfil</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Mostrar pacientes -->
+      <tr *ngFor="let paciente of pacientes">
+        <td>
+          <div class="user-info">
+            <img class="user-avatar" [src]="paciente.imageUrl1" alt="Avatar" (click)="descargarHistoriasClinicas(paciente.uid)">
+            <span>{{ paciente.nombre }}</span>
+          </div>
+        </td>
+        <td>{{ paciente.apellido }}</td>
+        <td>{{ paciente.email }}</td>
+        <td>{{ paciente.perfil }}</td>
+        <td></td>
+      </tr>
+
+      <!-- Mostrar especialistas -->
+      <tr *ngFor="let especialista of especialistas">
+        <td>
+          <div class="user-info">
+            <img class="user-avatar" [src]="especialista.imageUrl1" alt="Avatar">
+            <span>{{ especialista.nombre }}</span>
+          </div>
+        </td>
+        <td>{{ especialista.apellido }}</td>
+        <td>{{ especialista.email }}</td>
+        <td>{{ especialista.perfil }}</td>
+        <td></td>
+      </tr>
+
+      <!-- Mostrar administradores -->
+      <tr *ngFor="let administrador of administradores">
+        <td>
+          <div class="user-info">
+            <img class="user-avatar" [src]="administrador.imageUrl1" alt="Avatar">
+            <span>{{ administrador.nombre }}</span>
+          </div>
+        </td>
+        <td>{{ administrador.apellido }}</td>
+        <td>{{ administrador.email }}</td>
+        <td>{{ administrador.perfil }}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

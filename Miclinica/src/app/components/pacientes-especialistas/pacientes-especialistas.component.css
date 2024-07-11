@@ -1,0 +1,30 @@
+.container {
+    display: flex; /* Usa flexbox para la disposición de los elementos */
+    justify-content: space-between; /* Distribuye los elementos uniformemente en el espacio disponible */
+    max-width: 1000px; /* Establece el ancho máximo del contenedor, ajusta según tu diseño */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Añade relleno al contenedor, ajusta según tu diseño */
+  }
+  
+  .row {
+    display: flex; /* Usa flexbox para la disposición de los elementos internos */
+    width: 100%; /* Ocupa todo el ancho disponible */
+  }
+  
+  .column {
+    flex: 1; /* Hace que cada columna ocupe el mismo espacio dentro de la fila */
+    margin-right: 20px; /* Añade margen derecho entre las columnas, ajusta según tu diseño */
+  }
+  
+  .column:last-child {
+    margin-right: 0; /* Elimina el margen derecho de la última columna */
+  }
+  
+.detalle-paciente-content {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .detalle-paciente-container.show {
+    opacity: 1;
+  }

@@ -1,0 +1,85 @@
+.container {
+    max-width: 1600px;
+    padding: 20px;
+    background-color: #349cb6;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    margin: 20px;
+}
+
+.container form {
+    margin-bottom: 20px;
+    max-height: 500px; /* Ajusta esta altura máxima según tus necesidades */
+    overflow-y: auto; /* Habilita el scroll vertical si el contenido excede la altura máxima */
+}
+
+h2 {
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 20px; /* Añade un padding para separar el contenido del borde del formulario */
+}
+
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=password],
+input[type=file] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+input[type=submit] {
+    background-color: #56ab2f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type=submit]:hover {
+    background-color: #449c24;
+}
+/* Estilos del spinner de carga */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+  }
+  
+  .spinner {
+    border: 4px solid rgba(190, 24, 24, 0.3); /* Borde del spinner */
+    border-radius: 50%;
+    border-top: 4px solid #ffffff; /* Borde superior blanco */
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite; /* Animación de rotación */
+    background: linear-gradient(45deg, #ff0000, #5755e9); /* Fondo degradado */
+  }
+  
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

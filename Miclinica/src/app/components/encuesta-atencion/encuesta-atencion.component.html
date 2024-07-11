@@ -1,0 +1,25 @@
+<form [formGroup]="formCalificacion" (ngSubmit)="enviarCalificacion()">
+    <h2>Experiencia con el Especialista</h2>
+    
+    <label for="calificacion">1. En una escala del 1 al 10, ¿cómo calificaría su experiencia general con el especialista?</label>
+    <div class="rating">
+      <input type="range" min="1" max="10" formControlName="calificacion">
+      <span>Puntuación seleccionada: {{ formCalificacion.get('calificacion')?.value }}</span>
+      <div *ngIf="formCalificacion.get('calificacion')?.invalid && formCalificacion.get('calificacion')?.touched">
+        <span *ngIf="formCalificacion.get('calificacion')?.hasError('required')">La calificación es obligatoria.</span>
+        <span *ngIf="formCalificacion.get('calificacion')?.hasError('min')">La calificación mínima es 1.</span>
+        <span *ngIf="formCalificacion.get('calificacion')?.hasError('max')">La calificación máxima es 10.</span>
+      </div>
+    </div>
+    
+    <label for="comentario">2. ¿Tiene algún comentario adicional sobre su experiencia con el especialista?</label>
+    <div class="rating">
+      <input class="input-field" type="text" formControlName="comentario" name="comentario" style="width: 100%;">
+      <div *ngIf="formCalificacion.get('comentario')?.invalid && formCalificacion.get('comentario')?.touched">
+        <span *ngIf="formCalificacion.get('comentario')?.hasError('required')">El comentario es obligatorio.</span>
+      </div>
+    </div>
+    
+    <button class="mt-3" style="width: 5vw; float:right" type="submit">Enviar</button>
+  </form>
+  

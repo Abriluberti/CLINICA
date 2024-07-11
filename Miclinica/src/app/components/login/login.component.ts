@@ -7,11 +7,27 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FirebaseService } from '../../servicios/firebase.service';
 import { LoadingService } from '../../servicios/loading.service';
+import firebase from 'firebase/compat/app';
+import { HoverBackgroundDirective } from '../../directives/hover-background.directive';
+import { UppercasePipe } from "../../pipe/uppercase.pipe";
+import { CapitalizePipe } from '../../pipe/capitalize.pipe';
+import { RandomBackgroundDirective } from '../../directives/random-background.directive';
+import { HoverTraceDirective } from '../../directives/hover-trace.directive';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, RouterOutlet, NgIf, AsyncPipe, FormsModule],
+  imports: [
+    ReactiveFormsModule,
+    RouterLink,
+    RouterOutlet,
+    NgIf,
+    AsyncPipe,
+    RandomBackgroundDirective ,
+    HoverTraceDirective,
+    FormsModule,
+    CapitalizePipe // Incluye el pipe aquí
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -21,6 +37,7 @@ export class LoginComponent {
   errorMessage: string = '';
   successMessage: string = '';
   loading$ = this.loadingService.loading$;
+  especialistaUno: any; // Define la propiedad según corresponda
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -38,23 +55,26 @@ export class LoginComponent {
         const userType = await this.getUserType(user.uid);
         if (!userType) throw new Error('El usuario no tiene un tipo definido');
 
+        if (userType !== 'administradores' && !user.emailVerified) {
+          throw new Error('Debe verificar su correo electrónico antes de iniciar sesión');
+        }
+  
+
         if (userType === 'especialistas') {
           const especialistaData = await this.getEspecialista(user.uid);
           if (especialistaData && especialistaData.habilitado === true) {
             this.successMessage = 'Inicio de sesión exitoso';
             this.errorMessage = '';
+            await this.logUserLogin(user);
             this.router.navigate(['/home']);
           } else {
             await this.afAuth.signOut();
             throw new Error('La cuenta de especialista ha sido deshabilitada');
           }
-        } else if (userType === 'administradores') {
-          this.successMessage = 'Inicio de sesión exitoso';
-          this.errorMessage = '';
-          this.router.navigate(['/home']);
         } else {
           this.successMessage = 'Inicio de sesión exitoso';
           this.errorMessage = '';
+          await this.logUserLogin(user);
           this.router.navigate(['/home']);
         }
       }
@@ -71,22 +91,17 @@ export class LoginComponent {
   }
 
   setQuickAccess(userType: string) {
-    switch (userType) {
-      case 'admin':
-        this.email = 'juan@juann.com';
-        this.password = '123456';
-        break;
-      case 'especialista':
-        this.email = 'rosario@rosario.com';
-        this.password = '123456';
-        break;
-      case 'paciente':
-        this.email = 'maria@maria.com';
-        this.password = '123456';
-        break;
-      default:
-        break;
-    }
+    const userCredentials: { [key: string]: { email: string; password: string; } } = {
+      'admin': { email: 'juan@juann.com', password: '123456' },
+      'especialista': { email: 'lagase3662@apn7.com', password: '123456' },
+      'especialista2': { email: 'fedok83915@bacaki.com', password: '123456' },
+      'paciente1': { email: 'warinib748@bacaki.com', password: '123456' },
+      'paciente2': { email: 'bajimo8650@bacaki.com', password: '123456' },
+      'paciente3': { email: 'botoci4441@bsidesmn.com', password: '123456' }
+    };
+
+    this.email = userCredentials[userType]?.email || '';
+    this.password = userCredentials[userType]?.password || '';
   }
 
   getErrorMessage(error: any): string {
@@ -105,13 +120,13 @@ export class LoginComponent {
   async getUserType(userId: string): Promise<string | null> {
     try {
       const adminDoc = await this.firestore.collection('administradores').doc(userId).get().toPromise();
-      if (adminDoc && adminDoc.exists) return 'administradores';
+      if (adminDoc?.exists) return 'administradores';
 
       const especialistaDoc = await this.firestore.collection('especialistas').doc(userId).get().toPromise();
-      if (especialistaDoc && especialistaDoc.exists) return 'especialistas';
+      if (especialistaDoc?.exists) return 'especialistas';
 
       const pacienteDoc = await this.firestore.collection('pacientes').doc(userId).get().toPromise();
-      if (pacienteDoc && pacienteDoc.exists) return 'pacientes';
+      if (pacienteDoc?.exists) return 'pacientes';
 
       return null;
     } catch (error) {
@@ -127,6 +142,16 @@ export class LoginComponent {
     } catch (error) {
       console.error('Error al obtener datos del especialista:', error);
       return null;
+    }
+  }
+
+  private async logUserLogin(user: firebase.User | null) {
+    if (user) {
+      await this.firestore.collection('logEntries').add({
+        userId: user.uid,
+        username: user.email,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
     }
   }
 }

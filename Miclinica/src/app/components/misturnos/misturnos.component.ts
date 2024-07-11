@@ -1,96 +1,143 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Turno } from '../../models/turno.model';
+
 import { TurnosService } from '../../servicios/turnos.service';
+import { Turno } from '../../clases/turno';
+import { Router } from '@angular/router';
+import { EncuestaComponent } from "../encuesta/encuesta.component";
+import { EncuestaAtencionComponent } from "../encuesta-atencion/encuesta-atencion.component";
 
 @Component({
-  selector: 'app-misturnos',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './misturnos.component.html',
-  styleUrls: ['./misturnos.component.css']
+    selector: 'app-misturnos',
+    standalone: true,
+    templateUrl: './misturnos.component.html',
+    styleUrls: ['./misturnos.component.css'],
+    imports: [CommonModule, FormsModule, EncuestaComponent, EncuestaAtencionComponent]
 })
 export class MisturnosComponent implements OnInit {
   turnos: Turno[] = [];
   turnosFiltrados: Turno[] = [];
-  turnoBuscado: Turno | null = null;
-  filtroEspecialidad: string = '';
-  filtroEspecialista: string = '';
-  pacienteUid: string = ''; // Cambiado de pacienteEmail a pacienteUid
-  busquedaRealizada: boolean = false; // Variable para controlar si se realizó una búsqueda
-  mostrarListaTurnos: boolean = false; // Variable para controlar si se muestra la lista de turnos filtrados
+  filtroBusqueda: string = '';
+  @Input() turnoId!: string;
+  mostrarCalificacion: boolean = false;
+  pacienteUid: string = '';
+  busquedaRealizada: boolean = false;
+  mostrarEncuesta: boolean = false; // Bandera para controlar la visibilidad de la encuesta
+  turnoSeleccionado: Turno | null = null; // Turno seleccionado para la encuesta
 
   constructor(
     private afAuth: AngularFireAuth,
+    private router: Router,
     private turnosService: TurnosService
   ) {}
 
   ngOnInit(): void {
     this.afAuth.authState.subscribe(user => {
-      if (user && user.uid) { // Cambiado de user.email a user.uid
-        this.pacienteUid = user.uid; // Cambiado de pacienteEmail a pacienteUid
-        console.log('UID del paciente:', this.pacienteUid); // Verificar el UID del paciente
+      if (user && user.uid) {
+        this.pacienteUid = user.uid;
         this.obtenerTurnos();
       }
     });
   }
 
   obtenerTurnos() {
-    this.turnosService.getTurnosPaciente(this.pacienteUid) // Cambiado de pacienteEmail a pacienteUid
-      .subscribe((turnos: Turno[]) => {
-        console.log('Turnos del paciente:', turnos); // Verificar los turnos recuperados del servicio
-        this.turnos = turnos;
-        this.turnosFiltrados = turnos;
-      });
-  }
-
-  buscarTurnos() {
-    if (this.filtroEspecialidad && this.filtroEspecialista) {
-      const especialidad = this.filtroEspecialidad.trim().toLowerCase();
-      const especialista = this.filtroEspecialista.trim().toLowerCase();
-  
-      console.log('Especialidad filtrada:', especialidad);
-      console.log('Especialista filtrado:', especialista);
-  
-      this.turnosFiltrados = this.turnos.filter(turno => {
-        // Verificar si las propiedades están definidas antes de acceder a ellas
-        if (turno.especialidadId && turno.especialistaId) {
-          const especialidadTurno = turno.especialidadId.trim().toLowerCase();
-          const especialistaTurno = turno.especialistaId.trim().toLowerCase();
-          console.log('Especialidad del turno:', especialidadTurno);
-          console.log('Especialista del turno:', especialistaTurno);
-          return especialidadTurno === especialidad && especialistaTurno === especialista;
-        } else {
-          return false; // Si alguna propiedad no está definida, filtramos el turno
-        }
-      });
-  
-      console.log('Turnos filtrados:', this.turnosFiltrados); // Verificar los turnos filtrados
-  
-      // Mostrar la lista de turnos filtrados solo si se encontraron resultados
-      this.mostrarListaTurnos = this.turnosFiltrados.length > 0;
-  
-      if (this.turnosFiltrados.length === 0) {
+    this.turnosService.getTurnosPaciente(this.pacienteUid).subscribe(
+      (turnos: Turno[]) => {
+        console.log('Turnos del paciente:', turnos);
+        this.turnos = turnos.map(turno => ({
+          ...turno,
+          especialistaNombre: turno.especialistaNombre || ''
+        }));
+        this.turnosFiltrados = this.turnos; // Mostrar todos los turnos inicialmente
+        this.busquedaRealizada = true; // Indicar que la carga de turnos ha sido realizada
+      },
+      error => {
+        console.error('Error al obtener los turnos del paciente:', error);
         Swal.fire({
-          icon: 'info',
-          title: 'No hay turnos',
-          text: 'No se encontraron turnos para el especialista y especialidad seleccionados.'
+          icon: 'error',
+          title: 'Error',
+          text: 'Hubo un error al cargar los turnos. Por favor, intenta nuevamente más tarde.'
         });
       }
-  
-      // Marcar que se ha realizado una búsqueda
-      this.busquedaRealizada = true;
+    );
+  }
+
+  filtrarTurnos() {
+    if (this.filtroBusqueda.trim() !== '') {
+      const busqueda = this.filtroBusqueda.trim();
+      this.turnosFiltrados = this.turnos.filter(turno =>
+        this.filtrarTurnoPorCampo(turno, busqueda)
+      );
     } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Debes ingresar la especialidad y el especialista para buscar turnos.'
-      });
+      this.turnosFiltrados = this.turnos;
     }
   }
+
+  filtrarTurnoPorCampo(turno: Turno, busqueda: string): boolean {
+    // Verifica si alguna propiedad del turno coincide con la búsqueda
+    return (
+      turno.especialidades?.some(especialidad =>
+        especialidad.includes(busqueda)
+      ) ||
+      turno.especialistaNombre?.includes(busqueda) ||
+      turno.fecha?.includes(busqueda) ||
+      turno.hora?.includes(busqueda) ||
+      this.buscarEnHistoriaClinica(turno.historiaClinica, busqueda) ||
+      turno.estado?.includes(busqueda)
+   
+    );
+  }
+
+  buscarEnHistoriaClinica(historiaClinica: any, busqueda: string): boolean {
+    // Verifica si alguna propiedad de la historia clínica coincide con la búsqueda
+    if (!historiaClinica) {
+      return false;
+    }
+  
+    // Recorrer todas las propiedades del objeto historiaClinica
+    for (const key of Object.keys(historiaClinica)) {
+      const value = historiaClinica[key];
+  
+      // Si el valor es un objeto, buscar en sus propiedades recursivamente
+      if (typeof value === 'object' && value !== null) {
+        if (this.buscarEnObjeto(value, busqueda)) {
+          return true;
+        }
+      } else {
+        // Si el valor es una cadena, número u otro tipo primitivo, realizar la búsqueda
+        if (value.toString().includes(busqueda)) {
+          return true;
+        }
+      }
+    }
+  
+    return false;
+  }
+  
+  buscarEnObjeto(objeto: any, busqueda: string): boolean {
+    // Recorrer todas las propiedades del objeto
+    for (const key of Object.keys(objeto)) {
+      const value = objeto[key];
+  
+      // Si el valor es un objeto, buscar en sus propiedades recursivamente
+      if (typeof value === 'object' && value !== null) {
+        if (this.buscarEnObjeto(value, busqueda)) {
+          return true;
+        }
+      } else {
+        // Si el valor es una cadena, número u otro tipo primitivo, realizar la búsqueda
+        if (value.toString().includes(busqueda)) {
+          return true;
+        }
+      }
+    }
+  
+    return false;
+  }
+  
   
   mostrarCancelar(estado: string): boolean {
     return estado !== 'Realizado';
@@ -99,14 +146,25 @@ export class MisturnosComponent implements OnInit {
   cancelarTurno(turnoId: string): void {
     const comentario = prompt('Ingrese el motivo de la cancelación:');
     if (comentario) {
-      this.turnosService.cancelarTurno(turnoId, comentario)
-        .then(() => {
-          this.turnos = this.turnos.filter(turno => turno.id !== turnoId);
-          this.buscarTurnos();
-        })
-        .catch(error => {
-          console.error('Error al cancelar turno:', error);
+      this.turnosService.cancelarTurno(turnoId, comentario).then(() => {
+        // Remover el turno cancelado de la lista de turnos
+        this.turnos = this.turnos.filter(turno => turno.id !== turnoId);
+        this.turnosFiltrados = this.turnosFiltrados.filter(
+          turno => turno.id !== turnoId
+        );
+        Swal.fire({
+          icon: 'success',
+          title: 'Turno cancelado',
+          text: 'El turno ha sido cancelado correctamente.'
         });
+      }).catch(error => {
+        console.error('Error al cancelar turno:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Hubo un error al cancelar el turno. Por favor, intenta nuevamente más tarde.'
+        });
+      });
     }
   }
 
@@ -115,10 +173,40 @@ export class MisturnosComponent implements OnInit {
   }
 
   completarEncuesta(turno: Turno): void {
-    Swal.fire('Encuesta', 'Aquí puedes completar la encuesta.', 'info');
+    this.turnoSeleccionado = turno; // Guardar el turno seleccionado
+    this.mostrarEncuesta = true; // Mostrar la encuesta
   }
 
   calificarAtencion(turno: Turno): void {
-    // Lógica para calificar la atención
+    this.turnoSeleccionado = turno; // Guardar el turno seleccionado
+    this.mostrarCalificacion = true; // Mostrar el formulario de calificación
   }
+
+// En algún lugar del componente, donde determines que se debe mostrar la calificación
+mostrarCalificacionParaTurno(turno: Turno): void {
+  this.mostrarCalificacion = true; // Puedes establecer esta bandera según tus condiciones
+  this.turnoSeleccionado = turno; // Estableces el turno seleccionado para la calificación
+}
+
+calificacionEnviada(resultado: boolean): void {
+  // Lógica después de que se envía la calificación
+  console.log('Calificación enviada:', resultado);
+  this.mostrarCalificacion = false; // Ocultas el formulario de calificación
+  this.turnoSeleccionado = null; // Reseteas el turno seleccionado
+}
+
+  encuestaEnviada(resultado: boolean): void {
+    // Aquí puedes manejar la lógica después de enviar la encuesta
+    // Por ejemplo, cerrar la encuesta o actualizar algún estado
+    console.log('Encuesta enviada:', resultado);
+    this.mostrarEncuesta = false; // Ocultar la encuesta cuando se envía
+    this.turnoSeleccionado = null; // Resetear el turno seleccionado
+  }
+
+  mostrarEncuestaParaTurno(turno: Turno): void {
+    this.mostrarEncuesta = true; // Mostrar la encuesta
+    this.turnoSeleccionado = turno; // Guardar el turno seleccionado
+  }
+
+
 }

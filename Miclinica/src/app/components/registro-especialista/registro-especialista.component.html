@@ -1,0 +1,64 @@
+<div class="container">
+  <h2>Registro de Especialistas</h2>
+  <form (submit)="registerEspecialista($event)">
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" [(ngModel)]="especialista.nombre" name="nombre" placeholder="Nombre" required>
+    </div>
+    <div>
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" [(ngModel)]="especialista.apellido" name="apellido" placeholder="Apellido" required>
+    </div>
+    <div>
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" [(ngModel)]="especialista.edad" name="edad" placeholder="Edad" required min="0">
+    </div>
+    <div>
+      <label for="dni">DNI:</label>
+      <input type="number" id="dni" [(ngModel)]="especialista.dni" name="dni" placeholder="DNI" required>
+    </div>
+    <div>
+      <label for="especialidad">Especialidad:</label>
+      <select [(ngModel)]="especialidadSeleccionada" name="especialidadSeleccionada" (change)="agregarEspecialidad()" required>
+        <option *ngFor="let especialidad of especialidades" [value]="especialidad">{{ especialidad }}</option>
+        <option value="otra">Otra</option>
+      </select>
+      <div *ngIf="mostrarCampoOtraEspecialidad">
+        <input type="text" [(ngModel)]="nuevaEspecialidad" name="nuevaEspecialidad" placeholder="Nueva Especialidad">
+        <button type="button" (click)="agregarNuevaEspecialidad()">Agregar</button>
+      </div>
+      <div>
+        <label>Especialidades Seleccionadas:</label>
+        <ul>
+          <li *ngFor="let especialidad of especialista.especialidades">{{ especialidad }}</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="especialista.email" name="email" placeholder="Mail" required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" [(ngModel)]="especialista.password" name="password" placeholder="Password" required>
+    </div>
+    <div>
+      <label for="perfil">Seleccionar imagen:</label>
+      <input type="file" id="perfil" (change)="onFileSelected($event, 'especialista')" required>
+    </div>
+  
+    
+    <re-captcha 
+      (resolved)="onCaptchaResolved($any($event))" 
+      siteKey="6Le4NAwqAAAAAIKdO4bvbwqBRzDmd6ksbKZhNFIX"
+      required>
+    </re-captcha>
+    
+    <div *ngIf="captchaError" class="error-message">Debe completar el Captcha correctamente.</div>
+    <input type="submit" value="Registrar">
+  </form>
+  <div *ngIf="loading$ | async" class="loading-overlay">
+    <div class="spinner"></div>
+  </div>
+  
+</div>

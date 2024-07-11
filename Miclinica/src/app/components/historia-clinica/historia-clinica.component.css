@@ -1,0 +1,39 @@
+/* Estilos para el formulario de historia clínica */
+
+/* Espaciado y alineación general */
+.form-group {
+  margin-bottom: 1rem;
+  background-color: #f7f7f7; /* Color de fondo para los grupos de formulario */
+  padding: 10px; /* Espaciado interno para mejorar la separación */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.container-scroll {
+  max-height: 400px; /* Altura máxima del contenedor */
+  overflow-y: auto; /* Habilita el desplazamiento vertical cuando el contenido excede la altura máxima */
+  padding-right: 15px; /* Añade un padding derecho para compensar la barra de desplazamiento */
+}
+
+
+/* Ajuste de ancho para los campos */
+.form-control {
+  width: 100%;
+}
+
+/* Estilo para los botones */
+.btn {
+  margin-top: 0.5rem;
+}
+
+/* Estilo para los mensajes de error */
+.text-danger {
+  font-size: 0.875rem; /* Ajusta el tamaño del texto según necesidades */
+}
+
+/* Añadir un fondo al formulario completo */
+.container {
+  background-color: #ffffff; /* Color de fondo para el contenedor principal del formulario */
+  padding: 20px; /* Espaciado interno para mejorar la separación */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para efecto de elevación */
+}

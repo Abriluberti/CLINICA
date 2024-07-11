@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div *ngFor="let paciente of pacientesAtendidos" class="paciente-item"(click)="seleccionarPacienteClick(paciente)">
+        <div class="paciente-card">
+          <p>{{ paciente.nombre }}</p>
+          <img [src]="paciente.imageUrl1" alt="Imagen de perfil" class="paciente-img">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <!-- Este espacio está reservado para mostrar el detalle del paciente -->
+    </div>
+  </div>
+</div>

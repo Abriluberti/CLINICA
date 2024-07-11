@@ -1,0 +1,16 @@
+<div class="container">
+   
+        <h1>Grafico de Cantidad de turnos por día - Por Mes</h1>
+        
+          <label for="selectMes">Seleccionar Meses:</label>
+          <select class="form-control" id="selectMes" multiple [(ngModel)]="mesesSeleccionados" (change)="renderChart()">
+            <option *ngFor="let mes of meses" [value]="mes">{{ mes }}</option>
+          </select>
+       
+        <button class="btn" (click)="downloadAsPDF()"><span>Descargar </span><i class="bi bi-download"></i></button>
+        <canvas #chart></canvas>
+      </div>
+   
+       
+    
+  

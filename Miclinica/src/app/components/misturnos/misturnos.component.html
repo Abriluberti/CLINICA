@@ -1,31 +1,61 @@
-<!-- Encabezado "Mis Turnos" -->
-<h2 >Mis Turnos</h2>
+<div class="mis-turnos-container">
+  <h2>Mis Turnos</h2>
 
-<!-- Filtro de búsqueda -->
-<div>
-  <label for="especialidad">Especialidad:</label>
-  <input type="text" id="especialidad" [(ngModel)]="filtroEspecialidad" placeholder="Ingrese la especialidad">
+  <!-- Filtro de búsqueda -->
+  <div class="filtro-busqueda">
+    <label for="buscar">Buscar por Especialidad, Especialista, Fecha, Hora o Estado:</label>
+    <input type="text" id="buscar" [(ngModel)]="filtroBusqueda" (input)="filtrarTurnos()" placeholder="Ingrese término de búsqueda" />
+  </div>
 
-  <label for="especialista">Especialista:</label>
-  <input type="text" id="especialista" [(ngModel)]="filtroEspecialista" placeholder="Ingrese el especialista">
+  <!-- Contenedor principal con CSS Grid -->
+  <div class="turnos-container">
+    <!-- Lista de turnos -->
+    <div class="lista-turnos" *ngIf="turnos.length > 0">
+      <div class="turno" *ngFor="let turno of turnosFiltrados; let i = index" [ngClass]="{ 'turno-par': i % 2 === 0, 'turno-impar': i % 2 !== 0 }">
+        <div class="detalle-turno">
+          <p>Especialidad: {{ turno.especialidadId }}</p>
+          <p>Especialista: {{ turno.especialistaNombre }}</p>
+          <p>Fecha: {{ turno.fecha }}</p>
+          <p>Hora: {{ turno.hora }}</p>
+          <p>Estado: {{ turno.estado }}</p>
+        </div>
 
-  <button (click)="buscarTurnos()">Buscar</button>
-</div>
+        <div class="acciones-turno">
 
-<!-- Lista de turnos filtrados -->
-<div *ngIf="busquedaRealizada && turnosFiltrados.length > 0">
-  <div *ngFor="let turno of turnosFiltrados">
-    <p>Especialidad: {{ turno.especialidadId }}</p>
-    <p>Especialista: {{ turno.especialistaId }}</p>
-    <p>Fecha: {{ turno.fecha }}</p>
-    <p>Hora: {{ turno.hora }}</p>
-    <p>Estado: {{ turno.estado }}</p>
+          <!-- Mostrar la encuesta y calificación si el turno está marcado como 'Realizado' -->
+          <div *ngIf="turno.estado === 'Realizado'">
+            <button *ngIf="!turno.encuesta" (click)="completarEncuesta(turno)">Completar Encuesta</button>
+            <button *ngIf="turno.resena" (click)="verResena(turno)">Ver Reseña</button>
+            <button *ngIf=" turno.encuesta && !turno.calificacion" (click)="calificarAtencion(turno)">Calificar Atención</button>
+          </div>
 
-    <button *ngIf="turno.resena" (click)="verResena(turno)">Ver Reseña</button>
-    <button *ngIf="turno.estado === 'Realizado' && !turno.encuestaCompleta" (click)="completarEncuesta(turno)">Completar Encuesta</button>
-    <button *ngIf="turno.estado === 'Realizado' && turno.encuestaCompleta" (click)="calificarAtencion(turno)">Calificar Atención</button>
-    <!-- Agregar condición para ocultar el botón Cancelar Turno -->
-    <button *ngIf="mostrarCancelar(turno.estado) && turno.estado !== 'Cancelado'" (click)="cancelarTurno(turno.id)">Cancelar Turno</button>
+          <!-- Botón para cancelar el turno -->
+          <button *ngIf="mostrarCancelar(turno.estado) && turno.estado !== 'Cancelado'" class="cancelar-turno-btn" (click)="cancelarTurno(turno.id)">Cancelar Turno</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Encuesta y Calificación -->
+    <div class="encuesta-container">
+      <div *ngIf="(mostrarEncuesta || mostrarCalificacion) && turnoSeleccionado">
+      
+        <div *ngIf="mostrarEncuesta">
+          <app-encuesta [turnoId]="turnoSeleccionado?.id || null" (encuestaEnviada)="encuestaEnviada($event)"></app-encuesta>
+        </div>
+        <div *ngIf="mostrarCalificacion">
+          <app-encuesta-atencion [turnoId]="turnoSeleccionado.id" (calificacionEnviada)="calificacionEnviada($event)"></app-encuesta-atencion>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensajes si no se encuentran turnos -->
+  <div class="mensaje-turnos" *ngIf="turnos.length === 0 && busquedaRealizada">
+    <p>No se encontraron turnos con los criterios de búsqueda proporcionados.</p>
+  </div>
+
+  <!-- Mensaje de carga de turnos -->
+  <div class="mensaje-turnos" *ngIf="turnos.length === 0 && !busquedaRealizada">
+    <p>Cargando turnos...</p>
   </div>
 </div>
-

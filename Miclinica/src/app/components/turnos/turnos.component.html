@@ -1,18 +1,21 @@
-<div>
-  <label for="filtro">Filtrar por:</label>
-  <input type="text" id="filtro" [(ngModel)]="filtroEspecialidad" placeholder="Especialidad">
-  <input type="text" id="filtro" [(ngModel)]="filtroEspecialista" placeholder="Especialista">
-  <button (click)="buscarTurnos()">Buscar</button>
+<div appHoverTrace>
+  <label for="buscar">Buscar por Especialidad o Especialista:</label>
+  <input type="text" id="buscar" [(ngModel)]="filtroBusqueda" (input)="buscarTurnos()" placeholder="Ingrese especialidad o especialista">
 </div>
 
-<div *ngIf="turnosFiltrados && turnosFiltrados.length > 0">
-  <!-- Lista de turnos -->
-  <div *ngFor="let turno of turnosFiltrados">
-    <p>Especialidad: {{ turno.especialidadId }}</p>
-    <p>Especialista: {{ turno.especialistaId }}</p>
+<div   class="lista-turnos" *ngIf="turnosFiltrados && turnosFiltrados.length > 0">
+  <div class="turno" *ngFor="let turno of turnosFiltrados">
+    <p>  Especialidad: {{ turno.especialidadId }} </p>
+    <p>Especialista: {{ turno.especialistaNombre }}</p>
     <p>Fecha: {{ turno.fecha }}</p>
     <p>Hora: {{ turno.hora }}</p>
     <p>Estado: {{ turno.estado }}</p>
-    <button *ngIf="mostrarCancelar(turno.estado)" (click)="cancelarTurno(turno.id)">Cancelar Turno</button>
+    <div class="modal-buttons">
+      <div *ngIf="puedeCancelar(turno)">
+        <button (click)="confirmarCancelarTurno(turno.turnoId)">Cancelar Turno</button>
+
+
+      </div>
+    </div>
   </div>
 </div>

@@ -1,0 +1,20 @@
+/* Estilo para la tarjeta del paciente */
+.paciente-card {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border-radius: 50%; /* Hace que la tarjeta sea redonda */
+  overflow: hidden; /* Para asegurarse de que la imagen sea completamente redonda */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+.paciente-card p {
+  margin-left: 10px;
+}
+
+.paciente-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}

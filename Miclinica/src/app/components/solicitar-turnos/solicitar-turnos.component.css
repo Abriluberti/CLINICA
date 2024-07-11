@@ -10,7 +10,64 @@
     font-size: 1.5rem;
     margin-bottom: 20px;
   }
+  .profesionales-container,
+  .especialidades-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
   
+.btn-profesional img {
+  width: 40px; /* Reduce the width */
+  height: 40px; /* Reduce the height */
+  border-radius: 50%;
+}
+
+.btn-profesional span {
+  margin-top: 5px;
+}
+
+.btn-especialidad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 5px;
+  width: 150px; /* Ajusta el ancho del botón según tus necesidades */
+  height: 150px; /* Ajusta la altura del botón según tus necesidades */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden; /* Para recortar la imagen si es necesario */
+}
+
+/* estilos.css */
+/* estilos.css */
+
+.btn-fecha.seleccionado {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-hora.seleccionado {
+  background-color: #007bff;
+  color: white;
+}
+
+
+.btn-especialidad img {
+  max-width: 100%; /* Asegura que la imagen no sobrepase el tamaño del botón */
+  max-height: 100%; /* Asegura que la imagen no sobrepase el tamaño del botón */
+  object-fit: cover; /* Ajusta la imagen para cubrir todo el espacio disponible */
+}
+
+
+.btn-especialidad span {
+  flex-grow: 1;
+}
   /* Estilos para los campos de formulario */
   .form-group {
     margin-bottom: 20px;

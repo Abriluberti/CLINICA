@@ -1,0 +1,62 @@
+/* Estilos para el formulario de encuesta */
+form {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #a2d2ff;
+    border: 1px solid #c78585;
+    border-radius: 5px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  .rating {
+    margin-bottom: 15px;
+  }
+  
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 13px 20px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .mt-3 {
+    margin-top: 15px;
+  }
+  
+  /* Ajustes específicos para los botones de navegación */
+  button.float-left {
+    float: left;
+    margin-right: 10px;
+  }
+  
+  button.float-right {
+    float: right;
+    margin-left: 10px;
+  }
+  
+  /* Estilos adicionales si es necesario */
+  
+  

@@ -1,15 +1,13 @@
+<div class="container" [@fadeInOut]>
+  <div class="row">
+    <app-gestion> <!-- Componente Gestión de Usuarios -->
+      <!-- Contenido para Gestión de Usuarios -->
+    </app-gestion>
+    <app-especialistas></app-especialistas>
+    <app-usuarios> <!-- Componente Gestión de Especialistas -->
+      <!-- Contenido para Gestión de Especialistas -->
+    </app-usuarios>
 
-  <div class="container">
-    <div class="row">
-      <app-gestion> <!-- Componente Gestión de Usuarios -->
-        <!-- Contenido para Gestión de Usuarios -->
-      </app-gestion>
-      <app-especialistas></app-especialistas>
-      <app-usuarios> <!-- Componente Gestión de Especialistas -->
-        <!-- Contenido para Gestión de Especialistas -->
-      </app-usuarios>
-    </div>
-  
-
+    <app-fondo-registro (especialista)="handleEspecialista()" (paciente)="handlePaciente()" (close)="closeFondoRegistro()"></app-fondo-registro>
   </div>
-  
+</div>

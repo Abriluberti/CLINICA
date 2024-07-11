@@ -1,7 +1,34 @@
-<!-- login.component.html -->
-<body>
-    <div class="login-container">
-      <h2>Inicio de Sesión</h2>
+<body  appHoverTrace >
+  <div class="login-container" >
+    <!-- Contenedor del acceso rápido a la izquierda -->
+    <div class="quick-access-container">
+      <h3>Acceso Rápido</h3>
+      <div class="quick-access-buttons">
+        <button (click)="setQuickAccess('admin')" class="quick-access-button" appHoverBackground>
+          <img src="assets/administrador.png" alt="Admin">
+        </button>
+        <button (click)="setQuickAccess('especialista')" class="quick-access-button" appHoverBackground>
+          <img src="assets/Dentista.png" alt="Especialista">
+        </button>
+        <button (click)="setQuickAccess('especialista2')" class="quick-access-button" appHoverBackground>
+          <img src="assets/Especialista.png" alt="Especialista 2">
+        </button>
+        <button (click)="setQuickAccess('paciente1')" class="quick-access-button" appHoverBackground>
+          <img src="assets/PacienteUno.png" alt="Paciente 1">
+        </button>
+        <button (click)="setQuickAccess('paciente2')" class="quick-access-button" appHoverBackground>
+          <img src="assets/PacienteDos.png" alt="Paciente 2">
+        </button>
+        <button (click)="setQuickAccess('paciente3')" class="quick-access-button" appHoverBackground>
+          <img src="assets/PacienteTres.png" alt="Paciente 3">
+        </button>
+        
+      </div>
+    </div>
+
+    <!-- Formulario de inicio de sesión -->
+    <div class="login-form">
+      <p>{{ 'inicio de sesion ' | capitalize }}</p>
       <form (ngSubmit)="login()">
         <div>
           <label for="email">Email:</label>
@@ -17,12 +44,6 @@
       <div *ngIf="loading$ | async" class="loading-overlay">
         <div class="spinner"></div>
       </div>
-      <div class="quick-access-buttons">
-    
-        <button (click)="setQuickAccess('admin')">Admin</button>
-        <button (click)="setQuickAccess('especialista')">Especialista</button>
-        <button (click)="setQuickAccess('paciente')">Paciente</button>
-      </div>
     </div>
-  </body>
-  
+  </div>
+</body>
