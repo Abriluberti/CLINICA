@@ -50,7 +50,7 @@ Tanto el administrador como el usuario tendrán la opción de reservar un turno 
  Usuarios: Los turnos solicitados por los usuarios.
  Admin: Los turnos generales de la clínica.
 
-![imagen](https://github.com/Abriluberti/CLINICA/assets/98592504/03bdfbc9-cc12-4055-908f-c9da3d65805b)
+
 ![Sin título](https://github.com/Abriluberti/CLINICA/assets/98592504/8d19deb0-73c9-418d-bab3-de43082047e9)
 ![Sin título](https://github.com/Abriluberti/CLINICA/assets/98592504/3cc7172c-c14d-4d00-be67-f55193b693a1)
 
