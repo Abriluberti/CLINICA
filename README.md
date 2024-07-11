@@ -1,6 +1,9 @@
 # CLINITECH
 Bienvenido a Clinitech, un proyecto desarrollado con Angular y Firebase para la gestión virtual de pacientes, especialistas y turnos.
 
+Link:
+https://clinica-efd25.web.app/home
+
 Descripción
 
 Este proyecto tiene como objetivo facilitar la gestión de citas médicas y la organización de especialistas dentro de una clínica virtual. Utiliza Angular como framework frontend y Firebase para el backend, lo que proporciona una plataforma escalable y en tiempo real para la administración de datos.
